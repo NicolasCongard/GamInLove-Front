@@ -1,0 +1,28 @@
+.img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.img_2 {
+  width: 15%;
+  position: fixed;
+  top: 80%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+button {
+  padding: 10px;
+  border: black;
+  background: black;
+}
+
+.img_3 {
+  width: 15%;
+  position: fixed;
+  top: 80%;
+  left: 62%;
+  transform: translate(-50%, -50%);
+}

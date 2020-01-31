@@ -1,0 +1,13 @@
+<h1>Liste des events</h1>
+<form (ngSubmit)="onSubmit()">
+	<tr *ngFor="let event of events | async">
+		<p>
+			<input type="checkbox" (ngModel)="event.id" id="{{event.id}}" />
+			<label for="{{event.id}}">{{event.nom}}</label>
+		</p>
+		<h2>à {{event.lieu}} le {{event.date}} !</h2>
+	</tr>
+	<p>
+		<button type="submit">S'inscrire</button>
+	</p>
+</form>

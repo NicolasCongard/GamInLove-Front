@@ -1,0 +1,38 @@
+@font-face { font-family: "Outrun future"; src : url('../police/Outrun-future.ttf');}
+@font-face { font-family: "Outrun future"; src : url('../police/Outrun future.eot');}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  font-family: Outrun future;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 1.6vh 0;
+}
+
+li a:hover {
+  color: #f53a3a;
+  text-shadow: 1px 1px 1px black;
+}
