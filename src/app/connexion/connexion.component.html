@@ -6,18 +6,18 @@
 				<div>
 					<h1>Connexion</h1>
 				</div>
-				<form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+				<form *ngFor="let geek of geeks | async" [formGroup]="signinForm" (ngSubmit)="onSubmit()">
 					<div>
-						<label for="name">Nom d'utilisateur :</label>
+						<label for="email">Nom d'utilisateur :</label>
 						<input 
-						type="text" name="name" id="name" formControlName="name">
+						type="email" name="email" id="email" formControlName="email">
 					</div>
 					<div>
 						<label for="passsword">Mot de passe :</label>
 						<input type="password" name="password" id="password" formControlName="password">
 					</div>
 					<div class="button">
-						<input routerLink="profil" type="submit" value="Start" [disabled]="signinForm.invalid">
+						<input routerLink="like" type="submit" value="Start" [disabled]="signinForm.invalid">
 					</div>
 				</form>
 				<p>{{ errorMessage }}</p>

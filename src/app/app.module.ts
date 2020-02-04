@@ -17,7 +17,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AuthService } from '../app/services/auth/auth.service';
 import { AuthGuardService } from '../app/services/auth/auth-guard.service';
-import { BooksService } from '../app/services/books/books.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +47,7 @@ import { BooksService } from '../app/services/books/books.service';
       { path: '**', component: Error404Component },
     ])
   ],
-  providers: [AuthService, BooksService, AuthGuardService],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

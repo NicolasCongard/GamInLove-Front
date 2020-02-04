@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth/auth.service';
+import { Observable } from 'rxjs';
+import { Geek } from '../models/geek';
 
 
 @Component({
@@ -11,6 +13,7 @@ import { AuthService } from '../services/auth/auth.service';
 })
 export class ConnexionComponent implements OnInit {
 
+  geeks: Observable<Geek[]>;
   isShow = false;
   errorMessage: string;
   signinForm: FormGroup;
@@ -22,6 +25,11 @@ export class ConnexionComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
+    this.reloadData();
+  }
+
+  reloadData() {
+    this.geeks = this.authService.getAll();
   }
 
   initForm() {
@@ -32,10 +40,10 @@ export class ConnexionComponent implements OnInit {
   }
 
   onSubmit() {
-    const name = this.signinForm.get('name').value;
+    const email = this.signinForm.get('email').value;
     const password = this.signinForm.get('password').value;
 
-    this.authService.signInUser(name, password).then(
+    this.authService.signInUser(email, password).then(
       () => {
         this.router.navigate(['/profil']);
       },
