@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AuthGuard } from '../app/service/auth/auth.guard';
 
 
 import { AppComponent } from './app.component';
@@ -26,7 +27,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
     EventComponent,
     Error404Component,
     AccueilComponent,
-    ConnexionComponent
+    ConnexionComponent,
   ],
 
   imports: [
@@ -34,7 +35,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
       HttpClientModule,
       RouterModule.forRoot([
         { path: '', component: AccueilComponent },
-        { path: 'profil', component: ProfilComponent },
+        { path: 'profil', canActivate: [AuthGuard], component: ProfilComponent },
         { path: 'like', component: LikeComponent },
         { path: 'message', component: MessageComponent },
         { path: 'recherche', component: RechercheComponent },
@@ -42,7 +43,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
         { path: '**', component: Error404Component },
       ])
     ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

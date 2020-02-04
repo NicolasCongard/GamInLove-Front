@@ -6,17 +6,19 @@
 				<div>
 					<h1>Connexion</h1>
 				</div>
-				<form>
-					<div>
+				<form (ngSubmit)="f.form.valid && login()" f="ngForm" novalidate>
+					<div [ngClass]="{ 'has-error': f.submitted && !username.valid }">
 						<label for="name">Nom d'utilisateur :</label>
-						<input type="text" name="name" id="name" required>
+						<input ngModel="model.username" username="ngModel" type="text" name="name" id="name"
+							required>
 					</div>
-					<div>
+					<div [ngClass]="{ 'has-error': f.submitted && !password.valid }">
 						<label for="passsword">Mot de passe :</label>
-						<input type="password" name="password" id="password" required>
+						<input ngModel="model.password" password="ngModel" type="password" name="password"
+							id="password" required>
 					</div>
 					<div class="button">
-						<input routerLink="profil" type="submit" value="Start">
+						<input [disabled]="!f.form.valid" routerLink="profil" type="submit" value="Start">
 					</div>
 				</form>
 			</div>
