@@ -15,7 +15,6 @@ export class AccueilComponent implements OnInit {
   }
 
   connexion() {
-    this.showConnexion = true;
+    this.showConnexion = !this.showConnexion;
   }
-
 }

@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnexionComponent implements OnInit {
 
+  isShow = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  closePopIn() {
+    this.isShow = !this.isShow;
   }
 
 }

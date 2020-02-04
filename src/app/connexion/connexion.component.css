@@ -79,6 +79,12 @@ input {
   padding: 0px 20px 0px 20px;
 }
 
-.button{
+.button {
   text-align: center;
+}
+
+.close{
+  color: red;
+  float: right;
+  font-family: Outrun future;
 }

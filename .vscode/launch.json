@@ -35,6 +35,14 @@
       "port": 9225,
       "webRoot": "${workspaceFolder}",
       "url": "http://localhost:4201/#"
+    },
+    {
+      "name": "Launch Chrome GaminLove-Front on Angular CLI Server (1)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9276,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:4200/#"
     }
   ]
 }
