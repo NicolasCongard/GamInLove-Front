@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AuthGuard } from '../app/service/auth/auth.guard';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -15,6 +15,9 @@ import { Error404Component } from './error404/error404.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { AuthService } from '../app/services/auth/auth.service';
+import { AuthGuardService } from '../app/services/auth/auth-guard.service';
+import { BooksService } from '../app/services/books/books.service';
 
 @NgModule({
   declarations: [
@@ -31,20 +34,22 @@ import { ConnexionComponent } from './connexion/connexion.component';
   ],
 
   imports: [
-      BrowserModule,
-      HttpClientModule,
-      RouterModule.forRoot([
-        { path: '', component: AccueilComponent },
-        { path: 'profil', canActivate: [AuthGuard], component: ProfilComponent },
-        { path: 'like', component: LikeComponent },
-        { path: 'message', component: MessageComponent },
-        { path: 'recherche', component: RechercheComponent },
-        { path: 'event', component: EventComponent },
-        { path: '**', component: Error404Component },
-      ])
-    ],
-  providers: [AuthGuard],
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: '', component: AccueilComponent },
+      { path: 'profil', canActivate: [AuthGuardService], component: ProfilComponent },
+      { path: 'like', component: LikeComponent },
+      { path: 'message', component: MessageComponent },
+      { path: 'recherche', component: RechercheComponent },
+      { path: 'event', component: EventComponent },
+      { path: '**', component: Error404Component },
+    ])
+  ],
+  providers: [AuthService, BooksService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
- }
+}

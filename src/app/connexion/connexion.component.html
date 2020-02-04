@@ -6,21 +6,21 @@
 				<div>
 					<h1>Connexion</h1>
 				</div>
-				<form (ngSubmit)="f.form.valid && login()" f="ngForm" novalidate>
-					<div [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+				<form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+					<div>
 						<label for="name">Nom d'utilisateur :</label>
-						<input ngModel="model.username" username="ngModel" type="text" name="name" id="name"
-							required>
+						<input 
+						type="text" name="name" id="name" formControlName="name">
 					</div>
-					<div [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+					<div>
 						<label for="passsword">Mot de passe :</label>
-						<input ngModel="model.password" password="ngModel" type="password" name="password"
-							id="password" required>
+						<input type="password" name="password" id="password" formControlName="password">
 					</div>
 					<div class="button">
-						<input [disabled]="!f.form.valid" routerLink="profil" type="submit" value="Start">
+						<input routerLink="profil" type="submit" value="Start" [disabled]="signinForm.invalid">
 					</div>
 				</form>
+				<p>{{ errorMessage }}</p>
 			</div>
 		</div>
 	</div>
