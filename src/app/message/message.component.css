@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Outrun future";
-  src: url('../police/Outrun-future.ttf');
+  src: url('../_police/Outrun-future.ttf');
 }
 
 @font-face {
   font-family: "Outrun future";
-  src: url('../police/Outrun future.eot');
+  src: url('../_police/Outrun future.eot');
 }
 
 h1 {
