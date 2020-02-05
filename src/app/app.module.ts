@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AuthService } from '../app/_services/auth/auth.service';
 import { AuthGuardService } from '../app/_services/auth/auth-guard.service';
+import { CoopdispoComponent } from './coopdispo/coopdispo.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AuthGuardService } from '../app/_services/auth/auth-guard.service';
     Error404Component,
     AccueilComponent,
     ConnexionComponent,
+    CoopdispoComponent,
   ],
 
   imports: [
