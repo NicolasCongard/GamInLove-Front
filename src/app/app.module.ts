@@ -15,8 +15,8 @@ import { Error404Component } from './error404/error404.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ConnexionComponent } from './connexion/connexion.component';
-import { AuthService } from '../app/services/auth/auth.service';
-import { AuthGuardService } from '../app/services/auth/auth-guard.service';
+import { AuthService } from '../app/_services/auth/auth.service';
+import { AuthGuardService } from '../app/_services/auth/auth-guard.service';
 
 @NgModule({
   declarations: [

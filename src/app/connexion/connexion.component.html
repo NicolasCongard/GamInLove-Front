@@ -6,7 +6,7 @@
 				<div>
 					<h1>Connexion</h1>
 				</div>
-				<form *ngFor="let geek of geeks | async" [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+				<form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
 					<div>
 						<label for="email">Nom d'utilisateur :</label>
 						<input 
@@ -17,7 +17,7 @@
 						<input type="password" name="password" id="password" formControlName="password">
 					</div>
 					<div class="button">
-						<input routerLink="like" type="submit" value="Start" [disabled]="signinForm.invalid">
+						<input type="submit" value="Start" [disabled]="signinForm.invalid">
 					</div>
 				</form>
 				<p>{{ errorMessage }}</p>

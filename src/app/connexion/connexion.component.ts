@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth/auth.service';
+import { AuthService } from '../_services/auth/auth.service';
 import { Observable } from 'rxjs';
-import { Geek } from '../models/geek';
+import { Geek } from '../_models/geek';
 
 
 @Component({
@@ -45,10 +45,11 @@ export class ConnexionComponent implements OnInit {
 
     this.authService.signInUser(email, password).then(
       () => {
-        this.router.navigate(['/profil']);
+        console.log('Connexion réussie.')
+        this.router.navigate(['profil']);
       },
-      (error) => {
-        this.errorMessage = error;
+      () => {
+        this.errorMessage = 'Erreur de connexion !';
       }
     );
   }

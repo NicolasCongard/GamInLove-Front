@@ -16,7 +16,7 @@ export class AuthGuardService implements CanActivate {
             if (user) {
               resolve(true);
             } else {
-              alert('Il faut être connecté pour accéder à cette page.');
+              console.log('Il faut être connecté pour accéder à cette page.');
               this.router.navigate(['']);
               resolve(false);
             }
