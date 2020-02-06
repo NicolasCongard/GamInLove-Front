@@ -23,6 +23,6 @@ export class AppComponent {
       measurementId: 'G-6XP4R4PYRV'
     };
     firebase.initializeApp(firebaseConfig);
-    firebase.analytics()
+    firebase.analytics();
   }
 }

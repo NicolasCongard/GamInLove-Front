@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AccueilComponent implements OnInit {
 
   showConnexion = false;
+  showInscription = false;
 
   constructor() { }
 
@@ -15,5 +16,9 @@ export class AccueilComponent implements OnInit {
 
   connexion() {
     this.showConnexion = !this.showConnexion;
+  }
+
+  inscription() {
+    this.showInscription = !this.showInscription;
   }
 }

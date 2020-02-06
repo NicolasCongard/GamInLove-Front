@@ -18,6 +18,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { AuthService } from '../app/_services/auth/auth.service';
 import { AuthGuardService } from '../app/_services/auth/auth-guard.service';
 import { CoopdispoComponent } from './coopdispo/coopdispo.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CoopdispoComponent } from './coopdispo/coopdispo.component';
     AccueilComponent,
     ConnexionComponent,
     CoopdispoComponent,
+    InscriptionComponent,
   ],
 
   imports: [

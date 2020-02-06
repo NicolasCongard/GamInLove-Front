@@ -1,0 +1,27 @@
+<body [hidden]="isShow">
+<div class="modal-mask">
+  <div class="modal-wrapper">
+    <div class="modal-container">
+      <div class="close" (click)="closePopIn()">X</div>
+      <div>
+        <h1>Inscription</h1>
+      </div>
+      <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="email">Nom d'utilisateur :</label>
+          <input
+            type="email" name="email" id="email" formControlName="email">
+        </div>
+        <div>
+          <label for="passsword">Mot de passe :</label>
+          <input type="password" name="password" id="password" formControlName="password">
+        </div>
+        <div class="button">
+          <input type="submit" value="Start" [disabled]="signinForm.invalid">
+        </div>
+      </form>
+      <p>{{ errorMessage }}</p>
+    </div>
+  </div>
+</div>
+</body>
