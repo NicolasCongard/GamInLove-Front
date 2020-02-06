@@ -8,14 +8,34 @@
       </div>
       <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
         <div>
-          <label for="email">Nom d'utilisateur :</label>
+          <label for="pseudo">Pseudo :</label>
+          <input
+            type="text" name="pseudo" id="pseudo" formControlName="pseudo">
+        </div>
+        <div>
+          <label for="email">Password :</label>
+          <input
+            type="password" name="password" id="password" formControlName="password">
+        </div>
+        <div>
+          <label for="email">Mail :</label>
           <input
             type="email" name="email" id="email" formControlName="email">
         </div>
         <div>
-          <label for="passsword">Mot de passe :</label>
-          <input type="password" name="password" id="password" formControlName="password">
+          <label for="email">Ville :</label>
+          <input
+            type="text" name="ville" id="ville" formControlName="ville">
         </div>
+        <div>
+          <label for="sexe">Sexe :</label>
+          <select id="sexe" class="form-control" formControlName="sexe">
+            <option>Homme</option>
+            <option>Femme</option>
+            <option>Réponse D</option>
+          </select>
+        </div>
+        <!--<app-datepicker></app-datepicker>-->
         <div class="button">
           <input type="submit" value="Start" [disabled]="signinForm.invalid">
         </div>

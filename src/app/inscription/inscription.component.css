@@ -49,7 +49,7 @@ h1 {
   margin-left: 10px;
   margin-bottom: 30px;
   margin-top: 0px;
-  font-size: 55px;
+  font-size: 45px;
 }
 
 label {
@@ -58,11 +58,23 @@ label {
 }
 
 
-input {
+input{
   border: none;
   background-color: #acacac;
   width: 100%;
   height: 25px;
+}
+
+input:not([type="password"]) {
+  font-family: Outrun future;
+}
+
+select {
+  border: none;
+  background-color: #acacac;
+  width: 100%;
+  height: 25px;
+  font-family: Outrun future;
 }
 
 [type="submit"] {
