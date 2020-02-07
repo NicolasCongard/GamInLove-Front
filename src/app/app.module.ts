@@ -19,7 +19,7 @@ import { AuthService } from '../app/_services/auth/auth.service';
 import { AuthGuardService } from '../app/_services/auth/auth-guard.service';
 import { CoopdispoComponent } from './coopdispo/coopdispo.component';
 import { InscriptionComponent } from './inscription/inscription.component';
-import { IgxDatePickerModule} from "igniteui-angular";
+//import { IgxDatePickerModule} from "igniteui-angular";
 import { DatepickerComponent } from './datepicker/datepicker.component';
 
 @NgModule({
@@ -44,7 +44,7 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    IgxDatePickerModule,
+  //  IgxDatePickerModule,
     RouterModule.forRoot([
       { path: '', component: AccueilComponent },
       { path: 'profil', canActivate: [AuthGuardService], component: ProfilComponent },

@@ -1,1 +1,19 @@
-<p>like works!</p>
+<h1>Like</h1>
+<form (ngSubmit)="onSubmit()">
+	<tr *ngFor="let like of like| async">
+		<h2>Pseudonyme : {{geek.pseudo}}
+			Ville : {{geek.ville}}
+			Age : {{geek.age}}
+		</h2>
+	</tr>
+	<p>
+		<button type="submit">Like</button>
+		<button type="submit">SuperLike</button>
+		<button type="submit">Next</button>
+		
+	</p>
+			<p>
+				<input type="checkbox" (ngModel)="geek.id" id="{{geek.id}}" />
+				<label for="{{geek.id}}">{{geek.pseudo}}</label>
+			</p>
+</form>
