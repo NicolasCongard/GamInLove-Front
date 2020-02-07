@@ -16,23 +16,28 @@ h1 {
 }
 
 img {
-  height: 60px;
-  width: 60px;
+  height: 100px;
+  width: 100px;
   border-radius: 40%;
-  margin-right: 50px;
+  margin: 50px 50px 0px 0px;
 }
 
 li {
   list-style: none;
   font-family: Outrun future;
-  position: relative;
   padding-left: 1.3em;
   font-size: 2.05em;
   line-height: 2.7;
+  display: flex;
 }
 
-a{
-	margin-left: 30px;
-	text-decoration: none;
+a {
+  margin: 70px 0px 0px 30px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 30px;
 }
 
+.mp {
+  display: flex;
+}

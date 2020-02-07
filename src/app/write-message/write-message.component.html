@@ -1,19 +1,19 @@
-<h3>Ecrire un message</h3>
-<div [hidden]="submitted">
+<div class="box" [hidden]="submitted">
+		<h3>Ecrire un message</h3>
 	<form (ngSubmit)="onSubmit()">
-		<div class="hidden">
-			<input id="geekMp" [(ngModel)]="mp.geekMp" name="geekMp">
-			<label for="name"></label>
+		<div>
+			<label for="geekMP">Expéditeur :</label>
+			<input #geekMP type="number" id="geekMP" required name="geekMP">
 		</div>
 		<div>
-			<label for="name">Destinataire</label>
-			<input id="geekCible" type="text" required [(ngModel)]="mp.geekCible" name="geekCible">
+			<label for="geekCible">Destinataire :</label>
+			<input #geekCible type="number" id="geekCible" required name="geekCible">
 		</div>
 		<div>
-			<label for="message">Message</label>
-			<textarea id="message" required [(ngModel)]="mp.message" name="message"></textarea>
+			<label for="message">Message :</label>
+			<textarea  rows="5" cols="30" #message id="message" required name="message"></textarea>
 		</div>
-		<button type="submit">Envoyer</button>
+		<button (click)="saveMp(geekMP.value, geekCible.value, message.value)" type="submit">Envoyer</button>
 	</form>
 </div>
 <div [hidden]="!submitted">

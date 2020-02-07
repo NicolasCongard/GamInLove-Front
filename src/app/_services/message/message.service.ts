@@ -23,9 +23,7 @@ export class MessageService {
   /**
    * Permet d'écrire un mp
    *
-   * @param geekCible
-   * @param message
-   * @param geekMp
+   * @param newMp
    */
   addNew(newMp: Mp): Observable<Mp[]> {
     return this.http.post<Mp[]>(`${this.baseUrl}`, newMp);

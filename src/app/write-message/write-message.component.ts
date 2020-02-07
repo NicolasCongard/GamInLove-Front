@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Mp } from '../_models/mp';
 import { Router } from '@angular/router';
 import { MessageService } from '../_services/message/message.service';
+import { Geek } from '../_models/geek';
 
 @Component({
   selector: 'app-write-message',
@@ -10,8 +11,7 @@ import { MessageService } from '../_services/message/message.service';
 })
 export class WriteMessageComponent implements OnInit {
 
-  newMp: Mp = new Mp();
-  mp: Mp;
+  geek: Geek;
   submitted = false;
 
   constructor(
@@ -21,21 +21,14 @@ export class WriteMessageComponent implements OnInit {
   ngOnInit() {
   }
 
-  newMP(): void {
-    this.submitted = false;
-    this.newMp = new Mp();
-  }
-
-  saveMp() {
-    this.messageService.addNew(this.newMp)
-      .subscribe(data => console.log(data), error => console.log(error));
-    this.newMp = new Mp();
+  saveMp(geekMP: Geek, geekCible: Geek, message: string) {
+    this.messageService.addNew({ geekMP, geekCible, message } as Mp)
+    .subscribe(data => console.log(data), error => console.log(error));
     this.gotoList();
   }
 
   onSubmit() {
     this.submitted = true;
-    this.saveMp();
   }
 
   gotoList() {
