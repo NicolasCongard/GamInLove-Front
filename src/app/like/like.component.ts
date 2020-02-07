@@ -11,18 +11,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./like.component.css']
 })
 export class LikeComponent implements OnInit {
+ // geek: Geek
   geeks: Observable<Geek[]>;
   geek: Geek = new Geek();
   submitted = false;
 
   constructor(
-    private likeService: GeekService,
+    private geekService: GeekService,
     private router: Router) { }
 
   ngOnInit() {
     this.reloadData();
   }
  reloadData() {
-    this.geeks = this.likeService.getAll();
+    this.geeks = this.geekService.getAll();
   }
+
 }

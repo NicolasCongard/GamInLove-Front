@@ -4,8 +4,11 @@
          url('/Dafont/Outrun future.otf') format('otf'),
          url('/Dafont/Outrun-future.ttf') format('ttf'),
 }
+* {
+      font-family: Outrun future;
+}
 h1 {
-  font-family: Outrun future;
+
   color: white;
   background-color: black;
   padding-left: 50px;
@@ -22,4 +25,5 @@ font-size: 25px;
 }
  button {
      border-width: 0px;
+     outline: none;
  }

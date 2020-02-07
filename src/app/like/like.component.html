@@ -1,16 +1,21 @@
 <h1>Like ton L❤️VE</h1>
 
 <form>
-	<tr *ngFor="let like of like| async">
-		<h2>Pseudonyme : {{geek.pseudo}}
-			Ville : {{geek.ville}}
+	<tr *ngFor="let geek of geeks| async">
+		<h2> {{ geek.photos }}
+			<br>
+			Pseudonyme : {{geek.pseudo}}
+			<br>
+			Sexe : {{geek.sexe}} 
+			<br>
+			Ville : {{geek.ville}} 
+			<br>
 			Age : {{geek.age}}
 		</h2>
+		<p>
+			<button class="bouton" type="submit">❤️</button>
+			<button class="bouton" type="submit">💛</button>
+			<button class="bouton" type="submit">❌</button>	
+		</p>
 	</tr>
-	<p>
-		<button class="bouton" type="submit">❤️</button>
-		<button class="bouton" type="submit">💛</button>
-		<button class="bouton" type="submit">❌</button>
-		
-	</p>
 </form>
