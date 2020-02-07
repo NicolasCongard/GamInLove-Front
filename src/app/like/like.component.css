@@ -4,7 +4,22 @@
          url('/Dafont/Outrun future.otf') format('otf'),
          url('/Dafont/Outrun-future.ttf') format('ttf'),
 }
-
+h1 {
+  font-family: Outrun future;
+  color: white;
+  background-color: black;
+  padding-left: 50px;
+}
 p{
     font-family: "outrunfuture";
 }
+
+.bouton {
+background: transparent;
+margin: 1px;
+font-size: 25px;
+
+}
+ button {
+     border-width: 0px;
+ }

@@ -16,7 +16,7 @@ export class LikeService {
 		return this.http.get(`${this.baseUrl}`);
 	}
 
-	addLike(geek_id: number, action_id: number): Observable<any> {
-		return this.http.post(`${this.baseUrl2}/${geek_id}/${action_id}`, geek_id);
-	}
+//	addLike(geek_id: number, action_id: number): Observable<any> {
+//		return this.http.post(`${this.baseUrl2}/${geek_id}/${action_id}`, geek_id);
+//	}
 }
