@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class LikeService {
 	private baseUrl = 'http://localhost:8080/geek/';
-	private baseUrl2 = 'http://localhost:8080/geek_action/';
 
 
 	constructor(private http: HttpClient) { }
