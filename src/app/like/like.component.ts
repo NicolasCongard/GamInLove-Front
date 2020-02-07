@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { LikeService } from '../_services/like/like.service';
+import { GeekService } from '../_services/geek/geek.service';
 import { Observable } from 'rxjs';
 import { Geek } from '../_models/geek';
 import { Router } from '@angular/router';
@@ -16,7 +16,7 @@ export class LikeComponent implements OnInit {
   submitted = false;
 
   constructor(
-    private likeService: LikeService,
+    private likeService: GeekService,
     private router: Router) { }
 
   ngOnInit() {
