@@ -20,7 +20,7 @@ import { AuthGuardService } from '../app/_services/auth/auth-guard.service';
 import { CoopdispoComponent } from './coopdispo/coopdispo.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 //import { IgxDatePickerModule} from "igniteui-angular";
-import { DatepickerComponent } from './datepicker/datepicker.component';
+// import { DatepickerComponent } from './datepicker/datepicker.component';
 import { WriteMessageComponent } from './write-message/write-message.component'
 
 @NgModule({
@@ -37,7 +37,7 @@ import { WriteMessageComponent } from './write-message/write-message.component'
     ConnexionComponent,
     CoopdispoComponent,
     InscriptionComponent,
-    DatepickerComponent,
+    // DatepickerComponent,
     WriteMessageComponent,
   ],
 
