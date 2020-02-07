@@ -27,24 +27,24 @@ export class EventComponent implements OnInit {
     this.events = this.eventService.getAll();
   }
 
-  addParticipant(): void {
-    this.submitted = false;
-    this.event = new Event();
-  }
+  // addParticipant(): void {
+  //   this.submitted = false;
+  //   this.event = new Event();
+  // }
 
-  save() {
-    this.eventService.addParticipant(this.event.id, this.event.geekParticipant)
-      .subscribe(data => console.log(data), error => console.log(error));
-    this.event = new Event();
-    this.gotoList();
-  }
+  // save() {
+  //   this.eventService.addParticipant(this.event.id, this.event.geekParticipant)
+  //     .subscribe(data => console.log(data), error => console.log(error));
+  //   this.event = new Event();
+  //   this.gotoList();
+  // }
 
-  onSubmit() {
-    this.submitted = true;
-    this.save();
-  }
+  // onSubmit() {
+  //   this.submitted = true;
+  //   this.save();
+  // }
 
-  gotoList() {
-    this.router.navigate(['/event']);
-  }
+  // gotoList() {
+  //   this.router.navigate(['/event']);
+  // }
 }

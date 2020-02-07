@@ -1,0 +1,21 @@
+<h3>Ecrire un message</h3>
+<div [hidden]="submitted">
+	<form (ngSubmit)="onSubmit()">
+		<div class="hidden">
+			<input id="geekMp" [(ngModel)]="mp.geekMp" name="geekMp">
+			<label for="name"></label>
+		</div>
+		<div>
+			<label for="name">Destinataire</label>
+			<input id="geekCible" type="text" required [(ngModel)]="mp.geekCible" name="geekCible">
+		</div>
+		<div>
+			<label for="message">Message</label>
+			<textarea id="message" required [(ngModel)]="mp.message" name="message"></textarea>
+		</div>
+		<button type="submit">Envoyer</button>
+	</form>
+</div>
+<div [hidden]="!submitted">
+	<h4>Votre message a été envoyé !</h4>
+</div>

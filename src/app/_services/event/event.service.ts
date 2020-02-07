@@ -14,7 +14,7 @@ export class EventService {
 		return this.http.get(`${this.baseUrl}`);
 	}
 
-	addParticipant(id: number, idGeek: number): Observable<any> {
-		return this.http.post(`${this.baseUrl}/${id}`, idGeek);
-	}
+	// addParticipant(id: number, idGeek: number): Observable<any> {
+	// 	return this.http.post(`${this.baseUrl}/${id}`, idGeek);
+	// }
 }

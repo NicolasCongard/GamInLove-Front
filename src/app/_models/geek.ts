@@ -1,3 +1,6 @@
+import { Mp } from './mp';
+import { Event } from './event';
+
 export class Geek {
     id: number;
     age: number;
@@ -11,7 +14,7 @@ export class Geek {
     recherches: Array<string>;
     coop: Array<string>;
     action: Array<string>;
-    mp: Array<string>;
+    mp: Array<Mp>;
     jeux: Array<string>;
-    event: Array<string>;
+    event: Array<Event>;
 }

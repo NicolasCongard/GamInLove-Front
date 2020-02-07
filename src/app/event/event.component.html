@@ -1,5 +1,5 @@
 <h1>Liste des events</h1>
-<form (ngSubmit)="onSubmit()">
+<form> <!---(ngSubmit)="onSubmit()"---> 
 	<tr *ngFor="let event of events | async">
 		<p>
 			<input type="checkbox" (ngModel)="event.id" id="{{event.id}}" />
