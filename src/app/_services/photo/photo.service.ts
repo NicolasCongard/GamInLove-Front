@@ -5,13 +5,13 @@ import { Observable } from 'rxjs';
 @Injectable({
 	providedIn: 'root'
 })
-export class GeekService {
-	private baseUrl = 'http://localhost:8080/geek/';
+export class PhotoService {
+	private baseUrl = 'http://localhost:8080/photo/';
 
 
 	constructor(private http: HttpClient) { }
 
-	getAll(): Observable<any> {
+	getAllPhotos(): Observable<any> {
 		return this.http.get(`${this.baseUrl}`);
 	}
 }

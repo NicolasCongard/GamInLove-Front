@@ -7,6 +7,10 @@
 * {
       font-family: Outrun future;
 }
+img {
+  max-height: 300px;
+  max-width: 300px;
+}
 h1 {
 
   color: white;

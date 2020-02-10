@@ -3,6 +3,8 @@ import { GeekService } from '../_services/geek/geek.service';
 import { Observable } from 'rxjs';
 import { Geek } from '../_models/geek';
 import { Router } from '@angular/router';
+import {Photo} from '../_models/photo';
+import {PhotoService} from '../_services/photo/photo.service';
 
 
 @Component({
@@ -15,9 +17,13 @@ export class LikeComponent implements OnInit {
   geeks: Observable<Geek[]>;
   geek: Geek = new Geek();
   submitted = false;
+  /////////////////
+  photos: Observable<Photo[]>;
+  photo: Photo = new Photo();
+  submitted2 = false;
 
   constructor(
-    private geekService: GeekService,
+    private geekService: GeekService, private photoService: PhotoService,
     private router: Router) { }
 
   ngOnInit() {
@@ -25,6 +31,9 @@ export class LikeComponent implements OnInit {
   }
  reloadData() {
     this.geeks = this.geekService.getAll();
+
+    this.photos = this.photoService.getAllPhotos();
+   console.log("photooooo :"+ this.photos);
   }
 
 }
