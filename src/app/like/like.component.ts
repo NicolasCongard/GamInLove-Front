@@ -33,7 +33,5 @@ export class LikeComponent implements OnInit {
     this.geeks = this.geekService.getAll();
 
     this.photos = this.photoService.getAllPhotos();
-   console.log("photooooo :"+ this.photos);
   }
-
 }

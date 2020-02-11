@@ -49,7 +49,7 @@ export class ConnexionComponent implements OnInit {
         this.router.navigate(['profil']);
       },
       () => {
-        this.errorMessage = 'Erreur de connexion !';
+        this.errorMessage = 'Login/Mot de passe incorrect';
       }
     );
   }
