@@ -17,7 +17,7 @@ export class LikeComponent implements OnInit {
   geek: Geek = new Geek();
   submitted = false;
   /////////////////
-  photos: Observable<any>;
+  photos: Photo[];
   photo: Photo = new Photo();
   submitted2 = false;
 
@@ -30,6 +30,9 @@ export class LikeComponent implements OnInit {
   }
  reloadData() {
     this.geeks = this.geekService.getAll();
+    this.photoService.getAllPhotos().subscribe(
+      result => this.photos = result
+    );
 
  //  this.photos = this.photoService.findOneAlbum(this.geek.photos);
   // console.log("photooooo :"+ this.photos[0]);
