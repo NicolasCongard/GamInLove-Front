@@ -36,3 +36,6 @@ li a:hover {
   color: #f53a3a;
   text-shadow: 1px 1px 1px black;
 }
+img {
+  outline: none;
+}

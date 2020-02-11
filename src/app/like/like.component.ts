@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import {Photo} from '../_models/photo';
 import {PhotoService} from '../_services/photo/photo.service';
 
-
 @Component({
   selector: 'app-like',
   templateUrl: './like.component.html',
@@ -18,7 +17,7 @@ export class LikeComponent implements OnInit {
   geek: Geek = new Geek();
   submitted = false;
   /////////////////
-  photos: Observable<Photo[]>;
+  photos: Observable<any>;
   photo: Photo = new Photo();
   submitted2 = false;
 
@@ -32,6 +31,8 @@ export class LikeComponent implements OnInit {
  reloadData() {
     this.geeks = this.geekService.getAll();
 
-    this.photos = this.photoService.getAllPhotos();
+ //  this.photos = this.photoService.findOneAlbum(this.geek.photos);
+  // console.log("photooooo :"+ this.photos[0]);
   }
+
 }
