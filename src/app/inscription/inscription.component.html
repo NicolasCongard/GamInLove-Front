@@ -1,47 +1,42 @@
-<body [hidden]="isShow">
-<div class="modal-mask">
-  <div class="modal-wrapper">
+<div class="modal-mask" #toggleButton>
+  <div class="modal-wrapper" #menu>
     <div class="modal-container">
-      <div class="close" (click)="closePopIn()">X</div>
       <div>
         <h1>Inscription</h1>
       </div>
-      <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
-        <div>
-          <label for="pseudo">Pseudo :</label>
-          <input
-            type="text" name="pseudo" id="pseudo" formControlName="pseudo">
+      <form [formGroup]="inscriptionForm" (ngSubmit)="inscription()">
+        <div class="form-group">
+          <label>Pseudo</label>
+          <input type="text" class="form-control" formControlName="pseudo" required="required">
         </div>
-        <div>
-          <label for="email">Password :</label>
-          <input
-            type="password" name="password" id="password" formControlName="password">
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" formControlName="password" required="required">
         </div>
-        <div>
-          <label for="email">Mail :</label>
-          <input
-            type="email" name="email" id="email" formControlName="email">
+        <div class="form-group">
+          <label>Age</label>
+          <input type="number" min="18" max="99" class="form-control" formControlName="age" required="required">
         </div>
-        <div>
-          <label for="email">Ville :</label>
-          <input
-            type="text" name="ville" id="ville" formControlName="ville">
+        <div class="form-group">
+          <label>Ville</label>
+          <input type="text" class="form-control" formControlName="ville" required="required">
         </div>
-        <div>
-          <label for="sexe">Sexe :</label>
-          <select id="sexe" class="form-control" formControlName="sexe">
+        <div class="form-group">
+          <label>Sexe</label>
+          <select name="sexe" formControlName="sexe" required="required">
             <option>Homme</option>
             <option>Femme</option>
             <option>Réponse D</option>
           </select>
         </div>
-        <!--<app-datepicker></app-datepicker>-->
-        <div class="button">
-          <input type="submit" value="Start" [disabled]="signinForm.invalid">
+        <div class="form-group">
+          <label>Adresse mail</label>
+          <input type="email" class="form-control" formControlName="email" required="required">
         </div>
+        <button type="submit" class="btn btn-primary">OK</button>
+        <button type="reset" class="btn btn-primary" (click)="resetUserForm()">Reset</button>
       </form>
       <p>{{ errorMessage }}</p>
     </div>
   </div>
 </div>
-</body>

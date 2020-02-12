@@ -1,10 +1,11 @@
 <body>
 	<img class="img" src="https://media.discordapp.net/attachments/655048921055232041/669213500014592000/accueil2.jpg"
 		alt="">
-  <input type="image" (click)="inscription()" class="img_2"
+  <a [routerLink]="['/inscription']">
+  <input type="image" class="img_2"
          src="https://media.discordapp.net/attachments/655048921055232041/669219179215454286/newplayer.png" alt="">
+  </a>
 	<input type="image" (click)="connexion()" class="img_3"
 		src="https://media.discordapp.net/attachments/655048921055232041/669219473689018368/presstople.png" alt="">
 </body>
-<app-inscription *ngIf="showInscription"></app-inscription>
 <app-connexion *ngIf="showConnexion"></app-connexion>

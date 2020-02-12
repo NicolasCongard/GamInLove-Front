@@ -1,60 +1,63 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthService } from '../_services/auth/auth.service';
-import { Observable } from 'rxjs';
-import { Geek } from '../_models/geek';
-
+import {Component, OnInit, Renderer2,ElementRef,ViewChild} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {Geek} from '../_models/geek';
+import {HttpClient} from '@angular/common/http';
+import {InscriptionService} from '../_services/inscription/inscription.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
-  styleUrls: ['./inscription.component.css'],
+  styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent implements OnInit {
-
-  geeks: Observable<Geek[]>;
-  isShow = false;
-  errorMessage: string;
-  signinForm: FormGroup;
+  // @ts-ignore
+  @ViewChild('toggleButton') toggleButton: ElementRef;
+  // @ts-ignore
+  @ViewChild('menu') menu: ElementRef;
+  private inscriptionForm: FormGroup;
+  private errorMessage: string;
 
   constructor(
-    private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private router: Router) { }
-
-  ngOnInit() {
-    this.initForm();
-    this.reloadData();
-  }
-
-  reloadData() {
-    this.geeks = this.authService.getAll();
-  }
-
-  initForm() {
-    this.signinForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]]
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private inscriptionService: InscriptionService,
+    private renderer: Renderer2,
+    private router: Router
+  ) {
+    this.renderer.listen('window', 'click',(e:Event)=>{
+      if(e.target !== this.toggleButton.nativeElement && e.target ==this.menu.nativeElement){
+        this.router.navigate(['']);
+      }
     });
   }
 
-  onSubmit() {
-    const email = this.signinForm.get('email').value;
-    const password = this.signinForm.get('password').value;
-
-    this.authService.signInUser(email, password).then(
-      () => {
-        console.log('Connexion réussie.')
-        this.router.navigate(['profil']);
-      },
-      () => {
-        this.errorMessage = 'Erreur de connexion !';
-      }
-    );
+  ngOnInit() {
+    this.inscriptionForm = this.fb.group({
+      pseudo: [],
+      password: [],
+      age: [],
+      ville: [],
+      sexe: ['Homme'],
+      email: [],
+    });
   }
 
-  closePopIn() {
-    this.isShow = !this.isShow;
+  inscription() {
+    let geek = new Geek();
+    geek.pseudo = this.inscriptionForm.get('pseudo').value;
+    geek.age = this.inscriptionForm.get('age').value;
+    geek.ville = this.inscriptionForm.get('ville').value;
+    geek.sexe = this.inscriptionForm.get('sexe').value;
+    geek.email = this.inscriptionForm.get('email').value;
+    geek.password = this.inscriptionForm.get('password').value;
+    geek.typeCompte = 'Basic';
+    this.errorMessage = this.inscriptionService.saveAppareilsToServer(geek);
   }
+
+  resetUserForm() {
+    this.inscriptionForm.reset();
+    this.errorMessage = '';
+  }
+
 }

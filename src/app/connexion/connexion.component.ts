@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthService } from '../_services/auth/auth.service';
-import { Observable } from 'rxjs';
-import { Geek } from '../_models/geek';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {AuthService} from '../_services/auth/auth.service';
+import {Observable} from 'rxjs';
+import {Geek} from '../_models/geek';
 
 
 @Component({
@@ -13,6 +13,10 @@ import { Geek } from '../_models/geek';
 })
 export class ConnexionComponent implements OnInit {
 
+  // @ts-ignore
+  @ViewChild('toggleButton') toggleButton: ElementRef;
+  // @ts-ignore
+  @ViewChild('menu') menu: ElementRef;
   geeks: Observable<Geek[]>;
   isShow = false;
   errorMessage: string;
@@ -21,7 +25,15 @@ export class ConnexionComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router) { }
+    private router: Router,
+    private renderer: Renderer2
+  ) {
+    this.renderer.listen('window', 'click', (e: Event) => {
+      if (e.target !== this.toggleButton.nativeElement && e.target == this.menu.nativeElement) {
+        this.isShow = !this.isShow;
+      }
+    });
+  }
 
   ngOnInit() {
     this.initForm();
@@ -45,16 +57,12 @@ export class ConnexionComponent implements OnInit {
 
     this.authService.signInUser(email, password).then(
       () => {
-        console.log('Connexion réussie.')
+        console.log('Connexion réussie.');
         this.router.navigate(['profil']);
       },
       () => {
         this.errorMessage = 'Login/Mot de passe incorrect';
       }
     );
-  }
-
-  closePopIn() {
-    this.isShow = !this.isShow;
   }
 }
