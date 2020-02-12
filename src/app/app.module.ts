@@ -17,7 +17,6 @@ import {AuthService} from '../app/_services/auth/auth.service';
 import {AuthGuardService} from '../app/_services/auth/auth-guard.service';
 import {CoopdispoComponent} from './coopdispo/coopdispo.component';
 import {InscriptionComponent} from './inscription/inscription.component';
-import {WriteMessageComponent} from './write-message/write-message.component';
 import {ReadMessageComponent} from './read-message/read-message.component';
 import {SignupComponent} from './signup/signup.component';
 import {UploadComponent} from './upload/upload.component';
@@ -36,7 +35,6 @@ import {UploadComponent} from './upload/upload.component';
     ConnexionComponent,
     CoopdispoComponent,
     InscriptionComponent,
-    WriteMessageComponent,
     ReadMessageComponent,
     SignupComponent,
     UploadComponent,

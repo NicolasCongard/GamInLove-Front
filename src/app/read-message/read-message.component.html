@@ -1,3 +1,26 @@
-<p class="box">
-{{ mp.message }}
-</p>
+<div class="write">
+	<div class="bubble">
+		<div class="bubble-text">
+			<div *ngFor="let mp of mps | async">
+				<p>{{mp[1]}}</p>
+				{{mp[0] | date: 'dd/MM/yyyy'}} :
+				"{{mp[2]}}"
+			</div>
+		</div>
+	</div>
+	<div class="bubble2">
+		<div class="bubble-text2" [hidden]="submitted">
+			<h3>Ecrire un message</h3>
+			<form (ngSubmit)="onSubmit()">
+				<div>
+					<label for="message"></label>
+					<textarea rows="5" cols="30" #message id="message" required name="message"></textarea>
+				</div>
+				<button (click)="saveMp(mp.geekMP, mp.geekCible, message.value)" type="submit">Envoyer</button>
+			</form>
+		</div>
+		<div [hidden]="!submitted">
+			<h4>Votre message a été envoyé !</h4>
+		</div>
+	</div>
+</div>

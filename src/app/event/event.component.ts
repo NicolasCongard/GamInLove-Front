@@ -1,8 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EventService } from '../_services/event/event.service';
 import { Observable } from 'rxjs';
 import { Event } from '../_models/event';
-import { Router } from '@angular/router';
 import { Geek } from '../_models/geek';
 
 @Component({
@@ -17,8 +16,8 @@ export class EventComponent implements OnInit {
   submitted = false;
 
   constructor(
-    private eventService: EventService,
-    private router: Router) { }
+    private eventService: EventService
+    ) { }
 
   ngOnInit() {
     this.reloadData();

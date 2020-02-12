@@ -6,7 +6,7 @@
 				ngModel />
 			<label for="{{event.id}}">{{event.nom}}</label>
 		</p>
-		<h2>à {{event.lieu}} le {{event.date}} !</h2>
+		<h2>à {{event.lieu}} le {{event.date | date: 'dd/MM/yyyy'}}  !</h2>
 	</tr>
 	<p>
 		<button [hidden]="submitted" type="submit">S'inscrire</button>
