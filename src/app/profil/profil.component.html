@@ -1,3 +1,12 @@
-<p>
-  Welcome home !
-</p>
+<tr *ngFor="let geek of geeks| async">
+  <h2>
+    Pseudonyme : {{geek.pseudo}}
+    <br>
+    Sexe : {{geek.sexe}}
+    <br>
+    Ville : {{geek.ville}}
+    <br>
+    Age : {{geek.age}}
+  </h2>
+</tr>
+<app-upload></app-upload>

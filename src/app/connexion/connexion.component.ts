@@ -57,6 +57,7 @@ export class ConnexionComponent implements OnInit {
 
     this.authService.signInUser(email, password).then(
       () => {
+
         console.log('Connexion réussie.');
         this.router.navigate(['profil']);
       },

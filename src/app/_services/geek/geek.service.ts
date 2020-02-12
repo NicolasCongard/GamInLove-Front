@@ -3,12 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase';
 import {Photo} from '../../_models/photo';
+import {Geek} from '../../_models/geek';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class GeekService {
-	private baseUrl = 'http://localhost:8080/geek/';
+	private baseUrl = 'http://localhost:8080/geek';
+  private id: number;
 
 
 	constructor(private http: HttpClient) { }
@@ -16,6 +18,10 @@ export class GeekService {
 	getAll(): Observable<any> {
 		return this.http.get(`${this.baseUrl}`);
 	}
+
+	getOne(): Observable<any> {
+	  return this.http.get(`${this.baseUrl}/id`);
+  }
 
   uploadPhoto(file: File) {
 	  return new Promise(
