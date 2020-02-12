@@ -1,9 +1,10 @@
-import {Component, OnInit, Renderer2,ElementRef,ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {Component, OnInit, Renderer2, ElementRef, ViewChild} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Geek} from '../_models/geek';
 import {HttpClient} from '@angular/common/http';
 import {InscriptionService} from '../_services/inscription/inscription.service';
 import {Router} from '@angular/router';
+import {AuthService} from '../_services/auth/auth.service';
 
 @Component({
   selector: 'app-inscription',
@@ -15,6 +16,7 @@ export class InscriptionComponent implements OnInit {
   @ViewChild('toggleButton') toggleButton: ElementRef;
   // @ts-ignore
   @ViewChild('menu') menu: ElementRef;
+
   private inscriptionForm: FormGroup;
   private errorMessage: string;
 
@@ -23,10 +25,11 @@ export class InscriptionComponent implements OnInit {
     private http: HttpClient,
     private inscriptionService: InscriptionService,
     private renderer: Renderer2,
+    private authService: AuthService,
     private router: Router
   ) {
-    this.renderer.listen('window', 'click',(e:Event)=>{
-      if(e.target !== this.toggleButton.nativeElement && e.target ==this.menu.nativeElement){
+    this.renderer.listen('window', 'click', (e: Event) => {
+      if (e.target !== this.toggleButton.nativeElement && e.target == this.menu.nativeElement) {
         this.router.navigate(['']);
       }
     });
@@ -34,12 +37,12 @@ export class InscriptionComponent implements OnInit {
 
   ngOnInit() {
     this.inscriptionForm = this.fb.group({
-      pseudo: [],
-      password: [],
-      age: [],
-      ville: [],
-      sexe: ['Homme'],
-      email: [],
+      pseudo: ['', Validators.required],
+      password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]],
+      age: ['', Validators.required],
+      ville: ['', Validators.required],
+      sexe: ['Homme', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
     });
   }
 
@@ -52,7 +55,21 @@ export class InscriptionComponent implements OnInit {
     geek.email = this.inscriptionForm.get('email').value;
     geek.password = this.inscriptionForm.get('password').value;
     geek.typeCompte = 'Basic';
-    this.errorMessage = this.inscriptionService.saveAppareilsToServer(geek);
+    this.authService.createNewUser(geek.email, geek.password).then(
+      () => {
+        this.inscriptionService.saveAppareilsToServer(geek).then(
+          () => {
+            this.router.navigate(['/profil']);
+          },
+          (error) => {
+            this.errorMessage = error;
+          }
+        );
+      },
+      (error) => {
+        this.errorMessage = error;
+      }
+    );
   }
 
   resetUserForm() {

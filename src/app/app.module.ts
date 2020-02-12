@@ -18,6 +18,7 @@ import {AuthGuardService} from '../app/_services/auth/auth-guard.service';
 import {CoopdispoComponent} from './coopdispo/coopdispo.component';
 import {InscriptionComponent} from './inscription/inscription.component';
 import {WriteMessageComponent} from './write-message/write-message.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {WriteMessageComponent} from './write-message/write-message.component';
     CoopdispoComponent,
     InscriptionComponent,
     WriteMessageComponent,
+    SignupComponent,
   ],
 
   imports: [

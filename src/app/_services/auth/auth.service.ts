@@ -19,6 +19,21 @@ export class AuthService {
     return this.http.get(`${this.baseUrl}`);
   }
 
+  createNewUser(email: string, password: string) {
+    return new Promise(
+      (resolve, reject) => {
+        firebase.auth().createUserWithEmailAndPassword(email, password).then(
+          () => {
+            resolve();
+          },
+          (error) => {
+            reject(error);
+          }
+        );
+      }
+    );
+  }
+
   signInUser(email: string, password: string) {
     return new Promise(
       (resolve, reject) => {
