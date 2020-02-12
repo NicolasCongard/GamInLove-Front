@@ -22,6 +22,12 @@ h2{
   text-shadow: 1px 1px 1px black;
 }
 
+h4{
+  font-family: Outrun future;
+  color: red;
+  float: right;
+}
+
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
   position: absolute;
