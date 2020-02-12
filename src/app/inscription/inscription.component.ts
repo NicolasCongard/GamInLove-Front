@@ -57,7 +57,7 @@ export class InscriptionComponent implements OnInit {
     geek.typeCompte = 'Basic';
     this.authService.createNewUser(geek.email, geek.password).then(
       () => {
-        this.inscriptionService.saveAppareilsToServer(geek).then(
+        this.inscriptionService.saveGeek(geek).then(
           () => {
             this.router.navigate(['/profil']);
           },

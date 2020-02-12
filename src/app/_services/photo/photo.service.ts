@@ -20,4 +20,5 @@ export class PhotoService {
  //   let idGeek;
     return this.http.get<Photo>(this.baseUrlphoto + '/album' + id);
   }
+
 }

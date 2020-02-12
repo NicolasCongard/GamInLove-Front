@@ -19,6 +19,7 @@ import {CoopdispoComponent} from './coopdispo/coopdispo.component';
 import {InscriptionComponent} from './inscription/inscription.component';
 import {WriteMessageComponent} from './write-message/write-message.component';
 import { SignupComponent } from './signup/signup.component';
+import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SignupComponent } from './signup/signup.component';
     InscriptionComponent,
     WriteMessageComponent,
     SignupComponent,
+    UploadComponent,
   ],
 
   imports: [
@@ -51,6 +53,7 @@ import { SignupComponent } from './signup/signup.component';
       {path: 'recherche', canActivate: [AuthGuardService], component: RechercheComponent},
       {path: 'event', canActivate: [AuthGuardService], component: EventComponent},
       {path: 'inscription', component: InscriptionComponent},
+      {path: 'upload', component: UploadComponent},
       {path: '**', component: Error404Component},
     ])
   ],

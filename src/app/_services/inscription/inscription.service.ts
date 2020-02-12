@@ -11,7 +11,7 @@ export class InscriptionService {
   constructor(private http: HttpClient) {
   }
 
-  saveAppareilsToServer(geek) {
+  saveGeek(geek) {
     return new Promise(
       (resolve, reject) => {
         this.http
