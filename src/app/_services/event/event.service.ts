@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class EventService {
 		return this.http.get(`${this.baseUrl}`);
 	}
 
-	// addParticipant(id: number, idGeek: number): Observable<any> {
-	// 	return this.http.post(`${this.baseUrl}/${id}`, idGeek);
-	// }
+	addParticipant(id: number, idGeek: number): Observable<Event> {
+		return this.http.post<Event>(`${this.baseUrl}` + id + '/' + idGeek, {});
+	}
 }

@@ -12,12 +12,20 @@ export class MessageService {
   constructor(private http: HttpClient) { }
 
   /**
-   * Affiche la liste des mp
+   * Affiche la liste des mp d'un geek
    *
    * @param id
    */
-  getMpByGeek(id: number): Observable<Mp[]> {
-    return this.http.get<Mp[]>(`${this.baseUrl}/${id}`);
+  getMpByGeek(id: number): Observable<Mp> {
+    return this.http.get<Mp>(`${this.baseUrl}` + id);
+  }
+
+  /**
+   * Affiche la liste des mp
+   *
+   */
+  getAll(): Observable<Mp> {
+    return this.http.get<Mp>(`${this.baseUrl}`);
   }
 
   /**

@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Outrun future";
+  src: url('../_police/Outrun-future.ttf');
+}
+
+@font-face {
+  font-family: "Outrun future";
+  src: url('../_police/Outrun future.eot');
+}
+
+.box {
+  margin-left: 100px;
+  margin-top: 100px;
+  width: 260px;
+  height: 40px;
+  background: black;
+  border: solid white;
+  border-color: white;
+  border-width: 3px 3px 5px 5px;
+  border-radius: 4% 95% 6% 95%/95% 4% 92% 5%;
+  transform: rotate(-2deg);
+  color: white;
+  font-family: Outrun future;
+  text-align: center;
+}

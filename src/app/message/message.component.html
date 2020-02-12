@@ -1,16 +1,19 @@
 <h1>Liste des messages</h1>
-<div class="mp" *ngIf="mps">
+<div class="mp" *ngFor="let mp of mps | async; index as idIndex">
 	<p>
 		<!--id: {{ geek.id }}--->
-		<li *ngFor="let mp of mps | async">
+		<li>
 			<img src="https://www.unamur.be/sciences/chimie/rco/membres-images/inconnu/image_preview" alt="">
 			<h2 ng-options="mp in mps | unique:'mp.id'">{{ mp.geekCible.pseudo }}</h2>
 			<!--les doublons sont toujours là-->
-			<a (click)="writeMp()">✏️</a>
-			<a>💌</a>
+			<a (click)="writeMp(idIndex)">✏️</a>
+			<a (click)="readMp()">💌</a>
 		</li>
 	</p>
 	<div *ngIf="showWriteMessage">
 		<app-write-message></app-write-message>
+	</div>
+	<div *ngIf="showReadMessage">
+		<app-read-message [mp]="mp"></app-read-message>
 	</div>
 </div>

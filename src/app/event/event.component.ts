@@ -2,7 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { EventService } from '../_services/event/event.service';
 import { Observable } from 'rxjs';
 import { Event } from '../_models/event';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Geek } from '../_models/geek';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-event',
@@ -13,10 +15,13 @@ export class EventComponent implements OnInit {
 
   events: Observable<Event[]>;
   event: Event = new Event();
+  geek: Geek = new Geek();
   submitted = false;
+  ids = [];
 
   constructor(
     private eventService: EventService,
+    private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit() {
@@ -27,24 +32,35 @@ export class EventComponent implements OnInit {
     this.events = this.eventService.getAll();
   }
 
-  // addParticipant(): void {
-  //   this.submitted = false;
-  //   this.event = new Event();
-  // }
+  addParticipant(): void {
+    this.submitted = false;
+    this.event = new Event();
+  }
 
-  // save() {
-  //   this.eventService.addParticipant(this.event.id, this.event.geekParticipant)
-  //     .subscribe(data => console.log(data), error => console.log(error));
-  //   this.event = new Event();
-  //   this.gotoList();
-  // }
+  save(id: number, idGeek: number) {
+    this.eventService.addParticipant(id, idGeek)
+      .subscribe(data => console.log(data), error => console.log(error));
+    this.event = new Event();
+    this.gotoList();
+  }
 
-  // onSubmit() {
-  //   this.submitted = true;
-  //   this.save();
-  // }
+  onSubmit(form: NgForm) {
+    const check = form.value;
+    if (check === (':checked')) {
+      this.ids.push(check.attr('event.id'));
 
-  // gotoList() {
-  //   this.router.navigate(['/event']);
-  // }
+    }
+    console.log(this.ids);
+    // const idGeek = 1;
+    // this.eventService.addParticipant(id, idGeek)
+    //   .subscribe(data => console.log(data), error => console.log(error));
+    // this.event = new Event();
+    // this.gotoList();
+    // this.submitted = true;
+    // this.save();
+  }
+
+  gotoList() {
+    this.router.navigate(['/event']);
+  }
 }
