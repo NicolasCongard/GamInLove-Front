@@ -10,7 +10,6 @@ import { Geek } from '../../_models/geek';
 })
 export class GeekService {
   private baseUrl = 'http://localhost:8080/geek/';
-  private id: number;
 
 
   constructor(private http: HttpClient) { }
@@ -24,7 +23,7 @@ export class GeekService {
   }
 
   auth(email: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}auth?mail=${email}`);
+    return this.http.get(`${this.baseUrl}auth`, JSON.parse((email)));
   }
 
   uploadPhoto(file: File) {

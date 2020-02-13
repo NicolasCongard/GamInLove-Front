@@ -39,7 +39,7 @@ export class InscriptionComponent implements OnInit {
     this.inscriptionForm = this.fb.group({
       pseudo: ['', Validators.required],
       password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]],
-      age: ['', Validators.required],
+      age: ['18', Validators.required],
       ville: ['', Validators.required],
       sexe: ['Homme', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -59,7 +59,7 @@ export class InscriptionComponent implements OnInit {
       () => {
         this.inscriptionService.saveGeek(geek).then(
           () => {
-            this.router.navigate(['/profil']);
+            this.authService.signOutUser();
           },
           (error) => {
             this.errorMessage = error;

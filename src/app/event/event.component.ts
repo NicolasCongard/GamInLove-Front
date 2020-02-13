@@ -30,6 +30,7 @@ export class EventComponent implements OnInit {
     this.events = this.eventService.getAll();
     const email = JSON.parse(localStorage.getItem('email')).login;
     this.idGeeks = this.geekService.auth(email);
+    console.log(idGeeks);
   }
 
   getLogin() {
