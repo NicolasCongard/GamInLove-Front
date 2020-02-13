@@ -40,7 +40,7 @@ export class UploadComponent implements OnInit {
     if(this.fileUrl && this.fileUrl !== '') {
       photo.url = this.fileUrl;
     }
-    console.log("Photo : " + `${photo}`);
+    console.log("photo" + photo.url);
     //photo.idGeek = this.uploadForm.get('idGeek').value;
 
     //this.router.navigate(['/profil']);

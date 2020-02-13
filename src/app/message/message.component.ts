@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Mp } from '../_models/mp';
 import { MessageService } from '../_services/message/message.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -17,7 +17,6 @@ export class MessageComponent implements OnInit {
 
   constructor(
     private messageService: MessageService,
-    private route: ActivatedRoute,
     private router: Router
   ) { }
 
@@ -29,10 +28,6 @@ export class MessageComponent implements OnInit {
     // const id = +this.route.snapshot.paramMap.get('id');
     const id = 1;
     this.mps = this.messageService.getMpByGeek(id);
-  }
-
-  writeMp(idIndex) {
-    this.showWriteMessage = !this.showWriteMessage;
   }
 
   readMp() {

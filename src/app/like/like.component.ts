@@ -22,7 +22,8 @@ export class LikeComponent implements OnInit {
   submitted2 = false;
 
   constructor(
-    private geekService: GeekService, private photoService: PhotoService,
+    private geekService: GeekService,
+    private photoService: PhotoService,
     private router: Router) { }
 
   ngOnInit() {

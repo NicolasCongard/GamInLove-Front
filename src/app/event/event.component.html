@@ -1,13 +1,17 @@
 <h1>Liste des events</h1>
-<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+<form (ngSubmit)="onSubmit()">
 	<tr *ngFor="let event of events | async">
 		<p>
-			<input type="checkbox" id="{{event.id}}" name="{{event.id}}" ngModel />
+			<input (change)="onSelect($event, event.id)" type="checkbox" id="{{event.id}}" name="{{event.id}}"
+				ngModel />
 			<label for="{{event.id}}">{{event.nom}}</label>
 		</p>
-		<h2>à {{event.lieu}} le {{event.date}} !</h2>
+		<h2>à {{event.lieu}} le {{event.date | date: 'dd/MM/yyyy'}}  !</h2>
 	</tr>
 	<p>
-		<button type="submit">S'inscrire</button>
+		<button [hidden]="submitted" type="submit">S'inscrire</button>
 	</p>
 </form>
+<div [hidden]="!submitted">
+	<h4>Votre inscription a été validée !</h4>
+</div>

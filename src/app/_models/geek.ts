@@ -1,5 +1,6 @@
 import { Mp } from './mp';
 import { Event } from './event';
+import { Photo } from './photo';
 
 export class Geek {
     id: number;
@@ -10,7 +11,7 @@ export class Geek {
     sexe: string;
     typeCompte: string;
     email: string;
-    photos: Array<string>;
+    photo: Array<Photo>;
     recherches: Array<string>;
     coop: Array<string>;
     action: Array<string>;

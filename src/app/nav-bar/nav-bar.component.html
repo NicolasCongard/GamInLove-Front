@@ -2,12 +2,12 @@
   <img routerLink="profil"
        src="https://media.discordapp.net/attachments/655048921055232041/669179360812597258/logo2.png"
        alt="">
-  <ul id="navbar">
+  <ul>
     <li><a routerLink="profil">Profil</a></li>
     <li><a routerLink="like">Like</a></li>
     <li><a routerLink="message">Message</a></li>
     <li><a routerLink="recherche">Recherche</a></li>
     <li><a routerLink="event">Events</a></li>
-    <li><a (click)="onSignOut() " style="cursor:pointer" *ngIf="isAuth">Déconnexion</a></li>
+    <li ><a (click)="onSignOut() " style="cursor:pointer" *ngIf="isAuth">Déconnexion</a></li>
   </ul>
 </div>

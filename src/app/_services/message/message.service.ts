@@ -21,11 +21,13 @@ export class MessageService {
   }
 
   /**
-   * Affiche la liste des mp
+   * Affiche la liste des mps entre deux geeks
    *
+   * @param idEmetteur
+   * @param idRecepteur
    */
-  getAll(): Observable<Mp> {
-    return this.http.get<Mp>(`${this.baseUrl}`);
+  getAllMP(idEmetteur: number, idRecepteur: number): Observable<Mp> {
+    return this.http.get<Mp>(`${this.baseUrl}` + idEmetteur + '/' + idRecepteur, {});
   }
 
   /**
