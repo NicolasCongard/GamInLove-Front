@@ -27,7 +27,8 @@ export class ProfilComponent implements OnInit {
   }
 
   reloadData() {
-    this.geeks = this.geekService.getOne();
+    const idGeek = JSON.parse(localStorage.getItem('id')).login;
+    this.geeks = this.geekService.getOne(idGeek);
   }
 
 

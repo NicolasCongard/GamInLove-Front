@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { EventService } from '../_services/event/event.service';
 import { Observable } from 'rxjs';
 import { Event } from '../_models/event';
-import { Geek } from '../_models/geek';
 import { GeekService } from '../_services/geek/geek.service';
 
 @Component({
@@ -13,8 +12,7 @@ import { GeekService } from '../_services/geek/geek.service';
 export class EventComponent implements OnInit {
 
   events: Observable<Event[]>;
-  idGeeks;
-  geek: Geek = new Geek();
+  geeks;
   submitted = false;
 
   constructor(
@@ -28,24 +26,15 @@ export class EventComponent implements OnInit {
 
   reloadData() {
     this.events = this.eventService.getAll();
-    const email = JSON.parse(localStorage.getItem('email')).login;
-    this.idGeeks = this.geekService.auth(email);
-    console.log(idGeeks);
-  }
-
-  getLogin() {
-    const email = JSON.parse(localStorage.getItem('email')).login;
-    this.idGeeks = this.geekService.auth(email);
-    return this.geekService.auth(email);
   }
 
   onSubmit() {
     this.submitted = true;
   }
 
-  onSelect(event, id: number, idGeek: number) {
+  onSelect(event, id: number) {
+    const idGeek = JSON.parse(localStorage.getItem('id')).login;
     if (event.target.checked) {
-      // const idGeek = 1;
       this.eventService.addParticipant(id, idGeek)
         .subscribe(data => console.log(data), error => console.log(error));
     }

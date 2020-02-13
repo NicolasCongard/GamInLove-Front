@@ -37,11 +37,5 @@ export class NavBarComponent implements OnInit {
   onSignOut() {
     this.authService.signOutUser();
   }
-
-  getLogin() {
-    const email = JSON.parse(localStorage.getItem('email')).login;
-    return email;
-  }
-
 }
 

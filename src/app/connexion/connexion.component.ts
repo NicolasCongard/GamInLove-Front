@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth/auth.service';
 import { Observable } from 'rxjs';
 import { Geek } from '../_models/geek';
+import { GeekService } from '../_services/geek/geek.service';
 
 
 @Component({
@@ -21,12 +22,14 @@ export class ConnexionComponent implements OnInit {
   isShow = false;
   errorMessage: string;
   signinForm: FormGroup;
+  geekz;
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private geekService: GeekService
   ) {
     this.renderer.listen('window', 'click', (e: Event) => {
       if (e.target !== this.toggleButton.nativeElement && e.target === this.menu.nativeElement) {
@@ -42,6 +45,12 @@ export class ConnexionComponent implements OnInit {
 
   reloadData() {
     this.geeks = this.authService.getAll();
+    const email = JSON.parse(localStorage.getItem('email')).login;
+    this.geekz = this.geekService.auth(email);
+  }
+
+  getId(id: number) {
+    const idGeek = localStorage.setItem('id', JSON.stringify({ login: id }));
   }
 
   initForm() {
@@ -59,7 +68,6 @@ export class ConnexionComponent implements OnInit {
       () => {
 
         console.log('Connexion réussie.');
-        localStorage.setItem('email', JSON.stringify({ login: email }));
         this.router.navigate(['profil']);
       },
       () => {

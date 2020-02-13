@@ -19,12 +19,12 @@ export class GeekService {
     return this.http.get(`${this.baseUrl}`);
   }
 
-  getOne(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/id`);
+  getOne(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}` + id);
   }
 
-  auth(email: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}auth?mail=${email}`);
+  auth(email: string): Observable<Geek> {
+    return this.http.get<Geek>(`${this.baseUrl}auth?mail=${email}`);
   }
 
   uploadPhoto(file: File) {
