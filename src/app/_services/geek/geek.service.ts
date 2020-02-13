@@ -9,7 +9,7 @@ import {Geek} from '../../_models/geek';
 	providedIn: 'root'
 })
 export class GeekService {
-	private baseUrl = 'http://localhost:8080/geek';
+	private baseUrl = 'http://localhost:8080/geek/';
   private id: number;
 
 

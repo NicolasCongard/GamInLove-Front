@@ -14,7 +14,7 @@ import {PhotoService} from '../_services/photo/photo.service';
 export class LikeComponent implements OnInit {
  // geek: Geek
   geeks: Observable<Geek[]>;
-  geek: Geek = new Geek();
+  // geek: Geek = new Geek();
   submitted = false;
   /////////////////
   photos: Photo[];
@@ -31,9 +31,9 @@ export class LikeComponent implements OnInit {
   }
  reloadData() {
     this.geeks = this.geekService.getAll();
-    this.photoService.findOneAlbum(1).subscribe(
-      result => this.photo = result
-    );
+    // this.photoService.findOneAlbum(1).subscribe(
+    //   result => this.photo = result
+    // );
 
  //  this.photos = this.photoService.findOneAlbum(this.geek.photos);
   // console.log("photooooo :"+ this.photos[0]);
