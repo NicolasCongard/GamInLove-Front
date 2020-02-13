@@ -11,14 +11,14 @@ img {
   max-height: 300px;
   max-width: 300px;
 }
+form {
+  margin-left: 10px;
+}
 h1 {
 
   color: white;
   background-color: black;
   padding-left: 50px;
-}
-p{
-    font-family: "outrunfuture";
 }
 
 .bouton {

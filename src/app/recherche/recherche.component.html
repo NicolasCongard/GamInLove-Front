@@ -1,1 +1,22 @@
-<p>recherche works!</p>
+<div class="modal-mask" #toggleButton>
+  <div class="modal-wrapper" #menu>
+    <div class="modal-container">
+      <div class="form-style-8">
+        <h2>T'cherche kô?</h2>
+        <label for="age">Age Maximum : </label>
+        <input type="number" min="18" max="99" name="age" placeholder="18 ... 99" />
+          <label for="sexe">Sexe : </label>
+          <select name="sexe" formControlName="sexe" required="required">
+            <option>Homme</option>
+            <option>Femme</option>
+            <option>Petite Surprise</option>
+          </select>
+          <label for="game">Jeu et Rang </label>
+        <input type="text" name="game" placeholder="Dofus..." />
+          <textarea placeholder="Niveau 215..." onkeyup="adjust_textarea(this)"></textarea>
+          <input type="button" value="Ché ok pour mi" />
+
+      </div>
+    </div>
+  </div>
+</div>

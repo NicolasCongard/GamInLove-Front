@@ -37,5 +37,7 @@ export class NavBarComponent implements OnInit {
   onSignOut() {
     this.authService.signOutUser();
   }
+
+
 }
 

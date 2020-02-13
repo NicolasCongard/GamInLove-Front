@@ -30,8 +30,8 @@ export class LikeComponent implements OnInit {
   }
  reloadData() {
     this.geeks = this.geekService.getAll();
-    this.photoService.getAllPhotos().subscribe(
-      result => this.photos = result
+    this.photoService.findOneAlbum(1).subscribe(
+      result => this.photo = result
     );
 
  //  this.photos = this.photoService.findOneAlbum(this.geek.photos);

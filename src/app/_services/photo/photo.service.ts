@@ -16,8 +16,7 @@ export class PhotoService {
 		return this.http.get(`${this.baseUrl}`);
 	}
   findOneAlbum(id: number):Observable<Photo> {
- //   console.log('photoService findOneAlbum');
- //   let idGeek;
+
     return this.http.get<Photo>(this.baseUrlphoto + '/album' + id);
   }
 
