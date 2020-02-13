@@ -12,12 +12,10 @@ import { GeekService } from '../_services/geek/geek.service';
 export class EventComponent implements OnInit {
 
   events: Observable<Event[]>;
-  geeks;
   submitted = false;
 
   constructor(
     private eventService: EventService,
-    private geekService: GeekService
   ) { }
 
   ngOnInit() {
