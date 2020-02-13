@@ -1,10 +1,11 @@
-import {Component, OnInit, Renderer2, ElementRef, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Geek} from '../_models/geek';
-import {HttpClient} from '@angular/common/http';
-import {InscriptionService} from '../_services/inscription/inscription.service';
-import {Router} from '@angular/router';
-import {AuthService} from '../_services/auth/auth.service';
+import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Geek } from '../_models/geek';
+import { HttpClient } from '@angular/common/http';
+import { InscriptionService } from '../_services/inscription/inscription.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../_services/auth/auth.service';
+import { MustMatch } from '../_helpers/must-match.validator';
 
 @Component({
   selector: 'app-inscription',
@@ -29,7 +30,7 @@ export class InscriptionComponent implements OnInit {
     private router: Router
   ) {
     this.renderer.listen('window', 'click', (e: Event) => {
-      if (e.target !== this.toggleButton.nativeElement && e.target == this.menu.nativeElement) {
+      if (e.target !== this.toggleButton.nativeElement && e.target === this.menu.nativeElement) {
         this.router.navigate(['']);
       }
     });
@@ -39,11 +40,14 @@ export class InscriptionComponent implements OnInit {
     this.inscriptionForm = this.fb.group({
       pseudo: ['', Validators.required],
       password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]],
+      confirmPassword: ['', Validators.required],
       age: ['', Validators.required],
       ville: ['', Validators.required],
       sexe: ['Homme', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-    });
+    }, {
+        validator: MustMatch('password', 'confirmPassword')
+      });
   }
 
   inscription() {
