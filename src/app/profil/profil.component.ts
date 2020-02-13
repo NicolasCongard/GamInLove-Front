@@ -30,9 +30,5 @@ export class ProfilComponent implements OnInit {
     this.geeks = this.geekService.getOne();
   }
 
-  getLogin() {
-  return JSON.parse(localStorage.getItem('email')).login;
-}
-
 
 }

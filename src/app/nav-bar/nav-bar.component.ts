@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {AuthService} from '../_services/auth/auth.service';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../_services/auth/auth.service';
 import * as firebase from 'firebase';
 
 @Component({
@@ -38,6 +38,10 @@ export class NavBarComponent implements OnInit {
     this.authService.signOutUser();
   }
 
+  getLogin() {
+    const email = JSON.parse(localStorage.getItem('email')).login;
+    return email;
+  }
 
 }
 
