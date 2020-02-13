@@ -1,15 +1,14 @@
 <body [hidden]="isShow">
-<div class="modal-mask" #toggleButton>
-  <div class="modal-wrapper" #menu>
+	<div class="modal-mask" #toggleButton>
+		<div class="modal-wrapper" #menu>
 			<div class="modal-container">
 				<div>
 					<h1>Connexion</h1>
 				</div>
 				<form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
 					<div>
-						<label for="email">Nom d'utilisateur :</label>
-						<input
-						type="email" name="email" id="email" formControlName="email">
+						<label for="email">Adresse mail :</label>
+						<input type="email" name="email" id="email" formControlName="email">
 					</div>
 					<div>
 						<label for="passsword">Mot de passe :</label>

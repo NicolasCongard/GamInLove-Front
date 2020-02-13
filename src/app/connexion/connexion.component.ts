@@ -1,9 +1,9 @@
-import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
-import {AuthService} from '../_services/auth/auth.service';
-import {Observable} from 'rxjs';
-import {Geek} from '../_models/geek';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../_services/auth/auth.service';
+import { Observable } from 'rxjs';
+import { Geek } from '../_models/geek';
 
 
 @Component({
@@ -29,7 +29,7 @@ export class ConnexionComponent implements OnInit {
     private renderer: Renderer2
   ) {
     this.renderer.listen('window', 'click', (e: Event) => {
-      if (e.target !== this.toggleButton.nativeElement && e.target == this.menu.nativeElement) {
+      if (e.target !== this.toggleButton.nativeElement && e.target === this.menu.nativeElement) {
         this.isShow = !this.isShow;
       }
     });
@@ -59,6 +59,7 @@ export class ConnexionComponent implements OnInit {
       () => {
 
         console.log('Connexion réussie.');
+        localStorage.setItem('email', JSON.stringify({ login: email }));
         this.router.navigate(['profil']);
       },
       () => {
