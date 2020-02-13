@@ -20,6 +20,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { ReadMessageComponent } from './read-message/read-message.component';
 import { SignupComponent } from './signup/signup.component';
 import { UploadComponent } from './upload/upload.component';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 // import { MatAutocompleteModule, MatFormFieldModule } from '@angular/material';
@@ -43,6 +44,7 @@ import { UploadComponent } from './upload/upload.component';
     ReadMessageComponent,
     SignupComponent,
     UploadComponent,
+    SnackbarComponent,
     // AutocompleteComponent,
   ],
 
