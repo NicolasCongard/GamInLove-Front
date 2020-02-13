@@ -14,8 +14,8 @@
 						<label for="password">Mot de passe :</label>
 						<input type="password" name="password" id="password" formControlName="password">
 					</div>
-					<div class="button">
-						<input type="submit" value="Start" [disabled]="signinForm.invalid">
+					<div *ngFor="let geek of geekz | async" class="button">
+						<input name="id" id="id" (click)="getId(geek.id)" type="submit" value="Start" [disabled]="signinForm.invalid">
 					</div>
 				</form>
 				<p>{{ errorMessage }}</p>

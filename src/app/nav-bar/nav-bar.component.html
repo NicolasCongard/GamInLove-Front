@@ -7,7 +7,10 @@
     <li><a routerLink="message">Message</a></li>
     <li><a routerLink="recherche">Recherche</a></li>
     <li><a routerLink="event">Events</a></li>
-    <li>Vous êtes connecté avec l'adresse {{getLogin()}} !</li>    
-    <li><a (click)="onSignOut() " style="cursor:pointer" *ngIf="isAuth">Déconnexion</a></li>
+    <li *ngFor="let geek of geeks | async">
+      <p>{{geek.pseudo}}</p>
+    </li>
+    <li><a (click)="onSignOut() " style="cursor:pointer" *ngIf="isAuth">Déconnexion</a>
+    </li>
   </ul>
 </div>
