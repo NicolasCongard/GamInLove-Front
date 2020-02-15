@@ -21,10 +21,6 @@ import { ReadMessageComponent } from './read-message/read-message.component';
 import { SignupComponent } from './signup/signup.component';
 import { UploadComponent } from './upload/upload.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { AutocompleteComponent } from './autocomplete/autocomplete.component';
-// import { MatAutocompleteModule, MatFormFieldModule } from '@angular/material';
-// import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -62,14 +58,8 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
       { path: 'event', canActivate: [AuthGuardService], component: EventComponent },
       { path: 'inscription', component: InscriptionComponent },
       { path: 'upload', component: UploadComponent },
-      // { path: 'autocomplete', component: AutocompleteComponent },
       { path: '**', component: Error404Component },
     ]),
-    // BrowserAnimationsModule,
-    // MatAutocompleteModule,
-    // MatFormFieldModule,
-    // MatAutocompleteModule,
-    // MatFormFieldModule
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]

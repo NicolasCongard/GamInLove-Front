@@ -1,45 +1,45 @@
-<div class="modal-mask" #toggleButton>
-  <div class="modal-wrapper" #menu>
+<div class="modal-mask">
+  <div class="modal-wrapper">
     <div class="modal-container">
-      <div>
-        <h1>Inscription</h1>
+      <div class="form-style-8">
+        <h2>Inscription</h2>
+        <form [formGroup]="inscriptionForm" (ngSubmit)="inscription()">
+          <div class="form-group">
+            <label for="pseudo">Pseudo <span *ngIf="f.pseudo.errors.required">vide.</span></label>
+            <input type="text" id="pseudo" class="form-control" formControlName="pseudo">
+          </div>
+          <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" class="form-control" formControlName="password">
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirmer Mot de passe</label>
+            <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword">
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" min="18" max="99" class="form-control" formControlName="age">
+          </div>
+          <div class="form-group">
+            <label for="ville">Ville</label>
+            <input type="text" id="ville" class="form-control" formControlName="ville">
+          </div>
+          <div class="form-group">
+            <label for="sexe">Sexe</label>
+            <select name="sexe" id="sexe" formControlName="sexe">
+              <option>Homme</option>
+              <option>Femme</option>
+              <option>Petite surprise</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mail">Adresse mail</label>
+            <input type="email" id="mail" class="form-control" formControlName="email">
+          </div>
+          <input type="submit" value="Ché ok pour mi"/>
+          <input type="reset" value="Arceuminche" (click)="resetUserForm()"/>
+        </form>
       </div>
-      <form [formGroup]="inscriptionForm" (ngSubmit)="inscription()">
-        <div class="form-group">
-          <label for="pseudo">Pseudo</label>
-          <input type="text" id="pseudo" class="form-control" formControlName="pseudo" [ngClass]="{ 'is-invalid': submitted && f.pseudo.errors }">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
-        </div>
-        <div class="form-group">
-          <label for="confirmPassword">Confirm Password</label>
-          <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
-        </div>
-        <div class="form-group">
-          <label for="age">Age</label>
-          <input type="number" id="age" min="18" max="99" class="form-control" formControlName="age" [ngClass]="{ 'is-invalid': submitted && f.age.errors }">
-        </div>
-        <div class="form-group">
-          <label for="ville">Ville</label>
-          <input type="text" id="ville" class="form-control" formControlName="ville" [ngClass]="{ 'is-invalid': submitted && f.ville.errors }">
-        </div>
-        <div class="form-group">
-          <label for="sexe">Sexe</label>
-          <select name="sexe" id="sexe" formControlName="sexe" [ngClass]="{ 'is-invalid': submitted && f.sexe.errors }">
-            <option>Homme</option>
-            <option>Femme</option>
-            <option>Réponse D</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="mail">Adresse mail</label>
-          <input type="email" id="mail" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-        </div>
-        <button type="submit" class="btn btn-primary">OK</button>
-        <button type="reset" class="btn btn-primary" (click)="resetUserForm()">Reset</button>
-      </form>
     </div>
   </div>
 </div>

@@ -1,6 +1,5 @@
 <div *ngIf="shouldShow()">
-  <img routerLink="profil"
-    src="https://media.discordapp.net/attachments/655048921055232041/669179360812597258/logo2.png" alt="">
+  <img src="https://media.discordapp.net/attachments/655048921055232041/669179360812597258/logo2.png" alt="">
   <ul>
     <li><a routerLink="profil">Profil</a></li>
     <li><a routerLink="like">Like</a></li>
@@ -10,7 +9,6 @@
     <li *ngFor="let geek of geeks | async">
       <p>{{geek.pseudo}}</p>
     </li>
-    <li><img src="https://image.flaticon.com/icons/svg/565/565503.svg" (click)="onSignOut() " style="cursor:pointer" *ngIf="isAuth">
-    </li>
+    <li><img src="https://image.flaticon.com/icons/svg/565/565503.svg" (click)="onSignOut() " style="cursor:pointer"></li>
   </ul>
 </div>

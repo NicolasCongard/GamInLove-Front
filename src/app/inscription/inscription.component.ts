@@ -1,11 +1,10 @@
-import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Geek } from '../_models/geek';
-import { HttpClient } from '@angular/common/http';
-import { InscriptionService } from '../_services/inscription/inscription.service';
-import { Router } from '@angular/router';
-import { AuthService } from '../_services/auth/auth.service';
-import { MustMatch } from '../_helpers/must-match.validator';
+import {Component, OnInit, Renderer2} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Geek} from '../_models/geek';
+import {HttpClient} from '@angular/common/http';
+import {InscriptionService} from '../_services/inscription/inscription.service';
+import {AuthService} from '../_services/auth/auth.service';
+import {MustMatch} from '../_helpers/must-match.validator';
 
 @Component({
   selector: 'app-inscription',
@@ -13,10 +12,6 @@ import { MustMatch } from '../_helpers/must-match.validator';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent implements OnInit {
-  // @ts-ignore
-  @ViewChild('toggleButton') toggleButton: ElementRef;
-  // @ts-ignore
-  @ViewChild('menu') menu: ElementRef;
 
   private inscriptionForm: FormGroup;
   private errorMessage: string;
@@ -28,13 +23,7 @@ export class InscriptionComponent implements OnInit {
     private inscriptionService: InscriptionService,
     private renderer: Renderer2,
     private authService: AuthService,
-    private router: Router
   ) {
-    this.renderer.listen('window', 'click', (e: Event) => {
-      if (e.target !== this.toggleButton.nativeElement && e.target === this.menu.nativeElement) {
-        this.router.navigate(['']);
-      }
-    });
   }
 
   ngOnInit() {
@@ -47,55 +36,20 @@ export class InscriptionComponent implements OnInit {
       sexe: ['Homme', Validators.required],
       email: ['', [Validators.required, Validators.email]],
     }, {
-        validator: MustMatch('password', 'confirmPassword')
-      });
+      validator: MustMatch('password', 'confirmPassword')
+    });
     this.inscriptionForm.reset();
   }
 
-  get f() { return this.inscriptionForm.controls; }
+  get f() {
+    return this.inscriptionForm.controls;
+  }
 
   inscription() {
-    console.log("submitted" + this.submitted);
     this.submitted = true;
 
     if (this.inscriptionForm.invalid) {
-      let msg='';
-
-      if(this.inscriptionForm.controls.pseudo.errors.required) {
-        msg +="Champs Pseudo vide.\n";
-      }
-      if(this.inscriptionForm.controls.password.errors.required) {
-        msg += "Champs Password vide.\n";
-      }
-      if(this.inscriptionForm.controls.password.errors.minlength) {
-        msg +="Password doit contenir au moins 6 caractères.\n";
-      }
-      if(this.inscriptionForm.controls.confirmPassword.errors.required) {
-        msg +="Champs Confirmation vide.\n";
-      }
-      if(this.inscriptionForm.controls.confirmPassword.errors.mustMatch) {
-        msg +="Mot de passe différents.\n";
-      }
-      if(this.inscriptionForm.controls.age.errors.required) {
-        msg +="Champs Age vide.\n";
-      }
-      if(this.inscriptionForm.controls.sexe.errors.required) {
-        msg +="Champs Sexe vide.\n";
-      }
-      if(this.inscriptionForm.controls.ville.errors.required) {
-        msg +="Champs Ville vide.\n";
-      }
-      if(this.inscriptionForm.controls.email.errors.required) {
-        msg +="Champs Email vide.\n";
-      }
-      if(this.inscriptionForm.controls.email.errors.email) {
-        msg +="Adresse mail invalide\n";
-      }
-
       this.submitted = false;
-
-      alert(msg);
-
       return;
     }
 

@@ -1,100 +1,89 @@
-@font-face {
+* :not(.special){
   font-family: "Outrun future";
-  src: url('../_police/Outrun-future.ttf');
 }
-
-@font-face {
-  font-family: "Outrun future";
-  src: url('../_police/Outrun future.eot');
-}
-
-.modal-mask {
-  position: fixed;
-  z-index: 9998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .8);
-  display: table;
-  transition: opacity .3s ease;
-}
-
-.modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.modal-container {
-  width: 300px;
-  margin: 0px auto;
-  padding: 0px 10px 10px 10px;
-  background-color: #292828;
-  border-radius: 4px;
-  border-width: 5px;
-  border-color: black;
-  border-style: solid;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-  transition: all .3s ease;
-  font-family: Helvetica, Arial, sans-serif;
-}
-
 h1 {
   color: white;
-  border: solid;
-  text-decoration: underline white;
-  text-underline-position: under;
-  border: 0px;
-  font-family: Outrun future;
-  margin-left: 10px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  font-size: 43px;
+  background-color: black;
+  padding-left: 50px;
 }
+.form-style-8{
+  font-family: "Outrun future";
+  width: 500px;
+  padding: 30px;
+  background: #acacac;
+  margin: 50px auto;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+  -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
 
-label {
-  color: white;
-  font-family: Outrun future;
 }
-
-input, select {
-  border: none;
-  background-color: #acacac;
+.form-style-8 h2{
+  background: #2e2e2e;
+  text-transform: uppercase;
+  font-family: "Outrun future";
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 100;
+  padding: 20px;
+  margin: -30px -30px 30px -30px;
+}
+.form-style-8 input[type="text"],
+.form-style-8 input[type="date"],
+.form-style-8 input[type="datetime"],
+.form-style-8 input[type="email"],
+.form-style-8 input[type="number"],
+.form-style-8 input[type="search"],
+.form-style-8 input[type="time"],
+.form-style-8 input[type="url"],
+.form-style-8 input[type="password"],
+.form-style-8 textarea,
+.form-style-8 select
+{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  display: block;
   width: 100%;
-  height: 25px;
+  padding: 7px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background: transparent;
+  margin-bottom: 10px;
+  font: 16px "Outrun future";
+  height: 45px;
 }
-
-[type="submit"], [type="reset"] {
-  background-color: transparent;
-  font-family: Outrun future;
-  color: white;
-  text-shadow: 3px 3px 3px red;
-  border: 5px solid red;
-  border-radius: 4px;
-  font-size: 30px;
-  height: auto;
-  margin-top: 10px;
-  width: auto;
-  padding: 0px 20px 0px 20px;
+.form-style-8 textarea{
+  resize:none;
+  overflow: hidden;
 }
-
-[type="reset"] {
+.form-style-8 input[type="reset"],
+.form-style-8 input[type="submit"]{
+  -moz-box-shadow: inset 0px 1px 0px 0px #2e2e2e;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #2e2e2e;
+  box-shadow: inset 0px 1px 0px 0px #2e2e2e;
+  background-color: #2e2e2e;
+  border: 1px solid #2e2e2e;
+  display: inline-block;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-family: "outrun future";
+  font-size: 14px;
+  padding: 8px 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.form-style-8 input[type="reset"]:hover,
+.form-style-8 input[type="submit"]:hover {
+  background: #2e2e2e linear-gradient(to bottom, #2e2e2e 5%, #2e2e2e 100%);
+}
+.form-style-8 input[type="reset"]{
   float: right;
 }
-
-.button {
-  text-align: center;
+input[type="email"]{
+  font-family:"flyingleatherv2" !important;
+  font-weight: bolder;
 }
-
-input .ng-valid {
-  border: solid #82af3c 1px;
-}
-
-input .ng-invalid {
-  border: solid red 1px;
-}
-
-p{
+span{
   color: red;
-  font-family: Outrun future;
 }
