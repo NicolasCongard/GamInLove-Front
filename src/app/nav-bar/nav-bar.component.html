@@ -9,6 +9,6 @@
     <li *ngFor="let geek of geeks | async">
       <p>{{geek.pseudo}}</p>
     </li>
-    <li><img src="https://image.flaticon.com/icons/svg/565/565503.svg" (click)="onSignOut() " style="cursor:pointer"></li>
+    <li *ngIf="isAuth"><img src="https://image.flaticon.com/icons/svg/565/565503.svg" (click)="onSignOut() " style="cursor:pointer"></li>
   </ul>
 </div>

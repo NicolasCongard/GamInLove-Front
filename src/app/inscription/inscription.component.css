@@ -7,7 +7,6 @@ h1 {
   padding-left: 50px;
 }
 .form-style-8{
-  font-family: "Outrun future";
   width: 500px;
   padding: 30px;
   background: #acacac;
@@ -20,7 +19,6 @@ h1 {
 .form-style-8 h2{
   background: #2e2e2e;
   text-transform: uppercase;
-  font-family: "Outrun future";
   color: #ffffff;
   font-size: 18px;
   font-weight: 100;
@@ -67,7 +65,6 @@ h1 {
   display: inline-block;
   cursor: pointer;
   color: #FFFFFF;
-  font-family: "outrun future";
   font-size: 14px;
   padding: 8px 18px;
   text-decoration: none;
@@ -80,10 +77,13 @@ h1 {
 .form-style-8 input[type="reset"]{
   float: right;
 }
-input[type="email"]{
-  font-family:"flyingleatherv2" !important;
+input[type="email"], input[type="password"]{
+  font-family: flyingleatherv2_3 !important;
   font-weight: bolder;
 }
 span{
   color: red;
+}
+.error{
+  display: inline-block;
 }

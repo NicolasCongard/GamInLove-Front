@@ -3,9 +3,6 @@ import {Observable} from 'rxjs';
 import {Geek} from '../_models/geek';
 import {Recherche} from '../_models/recherche';
 import {GeekService} from '../_services/geek/geek.service';
-import {RechercheService} from '../_services/recherche/recherche.service';
-
-import {Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
@@ -16,17 +13,13 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class RechercheComponent implements OnInit {
   geeks: Observable<Geek[]>;
   geek: Geek = new Geek();
-  submitted = false;
 
-
-  searchG: Recherche;
   private rechercheForm: FormGroup;
   searchForm: FormGroup;
 
   constructor(private fb: FormBuilder,
               private geekService: GeekService,
-              private rechercheService: RechercheService,
-              private router: Router) {
+              ) {
 
   }
 
@@ -43,10 +36,6 @@ export class RechercheComponent implements OnInit {
 
   reloadData() {
     this.geeks = this.geekService.getAll();
-  }
-
-  searchGeek() {
-
   }
 
   onSubmit() {

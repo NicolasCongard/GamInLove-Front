@@ -5,7 +5,7 @@
         <h2>T'cherche kô?</h2>
         <form [formGroup]="rechercheForm" (ngSubmit)="onSubmit()">
           <label>Sexe : </label>
-          <select name="sexe" class="form-control" formControlName="sexe" required="required">
+          <select name="sexe" formControlName="sexe" required="required">
             <option>Homme</option>
             <option>Femme</option>
             <option>Petite Surprise</option>

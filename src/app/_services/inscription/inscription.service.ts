@@ -6,7 +6,6 @@ import {HttpClient} from '@angular/common/http';
 })
 export class InscriptionService {
   private baseUrl = 'http://localhost:8080/geek/';
-  private errorMessage = '';
 
   constructor(private http: HttpClient) {
   }

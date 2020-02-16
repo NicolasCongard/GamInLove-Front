@@ -5,6 +5,7 @@ import { AuthService } from '../_services/auth/auth.service';
 import { Observable } from 'rxjs';
 import { Geek } from '../_models/geek';
 import { GeekService } from '../_services/geek/geek.service';
+import * as firebase from 'firebase';
 
 
 @Component({
@@ -47,10 +48,6 @@ export class ConnexionComponent implements OnInit {
     this.geeks = this.authService.getAll();
     const email = JSON.parse(localStorage.getItem('email')).login;
     this.geekz = this.geekService.auth(email);
-  }
-
-  getId(id: number) {
-    const idGeek = localStorage.setItem('id', JSON.stringify({ login: id }));
   }
 
   initForm() {

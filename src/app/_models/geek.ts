@@ -11,6 +11,7 @@ export class Geek {
     sexe: string;
     typeCompte: string;
     email: string;
+    token: string;
     photo: Array<Photo>;
     recherches: Array<string>;
     coop: Array<string>;

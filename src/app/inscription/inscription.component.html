@@ -5,15 +5,29 @@
         <h2>Inscription</h2>
         <form [formGroup]="inscriptionForm" (ngSubmit)="inscription()">
           <div class="form-group">
-            <label for="pseudo">Pseudo <span *ngIf="f.pseudo.errors.required">vide.</span></label>
+            <label for="pseudo">Pseudo
+              <div class="error" *ngIf="submitted && f.pseudo.errors">
+              <span *ngIf="submitted && f.pseudo.errors.required">vide.</span>
+              </div>
+            </label>
             <input type="text" id="pseudo" class="form-control" formControlName="pseudo">
           </div>
           <div class="form-group">
-            <label for="password">Mot de passe</label>
+            <label for="password">Mot de passe
+              <div class="error" *ngIf="submitted && f.password.errors">
+              <span *ngIf="f.password.errors.required">vide.</span>
+              <span *ngIf="f.password.errors.pattern">trop court.</span>
+              </div>
+            </label>
             <input type="password" id="password" class="form-control" formControlName="password">
           </div>
           <div class="form-group">
-            <label for="confirmPassword">Confirmer Mot de passe</label>
+            <label for="confirmPassword">Confirmer Mot de passe
+              <div class="error" *ngIf="submitted && f.confirmPassword.errors">
+                <span *ngIf="f.confirmPassword.errors.required">vide.</span>
+                <span *ngIf="f.confirmPassword.errors.mustMatch">différents.</span>
+              </div>
+            </label>
             <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword">
           </div>
           <div class="form-group">
@@ -21,7 +35,11 @@
             <input type="number" id="age" min="18" max="99" class="form-control" formControlName="age">
           </div>
           <div class="form-group">
-            <label for="ville">Ville</label>
+            <label for="ville">Ville
+              <div class="error" *ngIf="submitted && f.ville.errors">
+                <span *ngIf="f.ville.errors.required">vide.</span>
+              </div>
+            </label>
             <input type="text" id="ville" class="form-control" formControlName="ville">
           </div>
           <div class="form-group">
@@ -33,8 +51,13 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="mail">Adresse mail</label>
-            <input type="email" id="mail" class="form-control" formControlName="email">
+            <label for="email">Adresse mail
+              <div class="error" *ngIf="submitted && f.email.errors">
+                <span *ngIf="f.email.errors.required">vide.</span>
+                <span *ngIf="f.email.errors.email">, pas au bon format.</span>
+              </div>
+            </label>
+            <input type="email" id="email" class="form-control" formControlName="email">
           </div>
           <input type="submit" value="Ché ok pour mi"/>
           <input type="reset" value="Arceuminche" (click)="resetUserForm()"/>

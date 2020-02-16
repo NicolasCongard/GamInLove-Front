@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {InscriptionService} from '../_services/inscription/inscription.service';
 import {AuthService} from '../_services/auth/auth.service';
 import {MustMatch} from '../_helpers/must-match.validator';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-inscription',
@@ -13,9 +14,9 @@ import {MustMatch} from '../_helpers/must-match.validator';
 })
 export class InscriptionComponent implements OnInit {
 
-  private inscriptionForm: FormGroup;
-  private errorMessage: string;
-  private submitted = false;
+  inscriptionForm: FormGroup;
+  errorMessage: string;
+  submitted = false;
 
   constructor(
     private fb: FormBuilder,
@@ -47,9 +48,7 @@ export class InscriptionComponent implements OnInit {
 
   inscription() {
     this.submitted = true;
-
     if (this.inscriptionForm.invalid) {
-      this.submitted = false;
       return;
     }
 
@@ -63,9 +62,10 @@ export class InscriptionComponent implements OnInit {
     geek.typeCompte = 'Basic';
     this.authService.createNewUser(geek.email, geek.password).then(
       () => {
+        geek.token = firebase.auth().currentUser.uid;
         this.inscriptionService.saveGeek(geek).then(
           () => {
-            alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.inscriptionForm.value, null, 4));
+            alert('SUCCESS!! :-)\n\n');
             this.authService.signOutUser();
           },
           (error) => {
