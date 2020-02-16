@@ -24,7 +24,7 @@ export class GeekService {
   }
 
   auth(token: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}auth?token=${token}`);
+    return this.http.get(`${this.baseUrl}auth?token=`+token);
   }
 
   uploadPhoto(file: File) {

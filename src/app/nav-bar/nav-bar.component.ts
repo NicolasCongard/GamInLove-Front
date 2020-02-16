@@ -46,6 +46,7 @@ export class NavBarComponent implements OnInit {
     const email = JSON.parse(localStorage.getItem('email')).login;
     //this.geeks = this.geekService.auth(email);
     this.geeks = this.geekService.auth(firebase.auth().currentUser.uid);
+    console.log(this.geeks);
   }
 
   getId() {
