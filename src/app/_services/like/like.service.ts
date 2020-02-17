@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {Photo} from '../../_models/photo';
 
 @Injectable({
 	providedIn: 'root'
@@ -15,7 +16,7 @@ export class LikeService {
 	getAll(): Observable<any> {
 		return this.http.get(`${this.baseUrl}`);
 	}
-  getById(id: number) {
-    return this.http.get(`${this.baseUrlPhoto}?id=`+id);
+  getById(id: number): Observable<Photo> {
+    return this.http.get<Photo>(`${this.baseUrlPhoto}`+id);
   }
 }
