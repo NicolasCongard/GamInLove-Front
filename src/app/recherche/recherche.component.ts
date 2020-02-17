@@ -15,10 +15,12 @@ import {error} from 'util';
   styleUrls: ['./recherche.component.css']
 })
 export class RechercheComponent implements OnInit {
-  geeks: Observable<Geek[]>;
+  geeks: Observable<Geek>;
+  pseudos: string[] = [];
   geek: Geek = new Geek();
 
   searchForm: FormGroup;
+  private recherche: Recherche;
 
   constructor(private fb: FormBuilder,
               private router: Router,
@@ -30,6 +32,7 @@ export class RechercheComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
+    this.displayGeek();
     this.searchForm= this.fb.group( {
       sexe:[''],
       ville:[''],
@@ -50,18 +53,13 @@ export class RechercheComponent implements OnInit {
     recherche.ageMin = this.searchForm.get('ageMin').value;
     recherche.ageMax = this.searchForm.get('ageMax').value;
     this.rechercheService.searchGeek(recherche).subscribe(
-      geekSearch => console.log(geekSearch),
+      geekSearch => this.pseudos = geekSearch,
       error => console.log("error" + error)
     )
   }
-/*  saveMp(recherche: Recherche) {
-    this.rechercheService.searchGeek({recherche})
-      .subscribe(data => console.log(data), error => console.log(error));
-    this.gotoList();
+  displayGeek() {
+    //this.pseudos = this.geekService.getGeekBySearch();
   }
-  gotoList() {
-    this.router.navigate(['/search']);
-  }*/
 }
 
 

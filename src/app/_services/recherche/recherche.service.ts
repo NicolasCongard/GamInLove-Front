@@ -41,4 +41,5 @@ export class RechercheService {
     return this.http.post<any>(`${this.baseUrl}`, recherche, this.httpOptions);
 
   }
+
 }

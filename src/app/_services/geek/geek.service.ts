@@ -4,12 +4,14 @@ import { Observable } from 'rxjs';
 import * as firebase from 'firebase';
 import { Photo } from '../../_models/photo';
 import { Geek } from '../../_models/geek';
+import {Recherche} from '../../_models/recherche';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GeekService {
   private baseUrl = 'http://localhost:8080/geek/';
+  private baseUrlSearch = 'http://localhost:8080/recherche/';
   private baseUrlPhoto = 'http://localhost:8080/photo/';
   private id: number;
   private idGeek: number;
