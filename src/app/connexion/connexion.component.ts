@@ -66,7 +66,7 @@ export class ConnexionComponent implements OnInit {
 
         console.log('Connexion réussie.');
         this.geekService.auth(firebase.auth().currentUser.uid).subscribe(
-          geek => console.log(geek.id)
+          geek => sessionStorage.setItem('geek', JSON.stringify(geek))
         );
         this.router.navigate(['profil']);
       },

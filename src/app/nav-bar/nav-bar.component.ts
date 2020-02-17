@@ -26,7 +26,6 @@ export class NavBarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.reloadData();
     firebase.auth().onAuthStateChanged(
       (user) => {
         if (user) {
@@ -40,17 +39,6 @@ export class NavBarComponent implements OnInit {
 
   onSignOut() {
     this.authService.signOutUser();
-  }
-
-  reloadData() {
-    const email = JSON.parse(localStorage.getItem('email')).login;
-    //this.geeks = this.geekService.auth(email);
-    this.geeks = this.geekService.auth(firebase.auth().currentUser.uid);
-    console.log(this.geeks);
-  }
-
-  getId() {
-    this.geekService.auth(firebase.auth().currentUser.uid);
   }
 
 }
