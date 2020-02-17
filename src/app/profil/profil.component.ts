@@ -4,6 +4,7 @@ import {GeekService} from '../_services/geek/geek.service';
 import {PhotoService} from '../_services/photo/photo.service';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
+import {LikeService} from '../_services/like/like.service';
 
 @Component({
   selector: 'app-profil',
@@ -17,19 +18,23 @@ export class ProfilComponent implements OnInit {
 
   constructor(
     private geekService: GeekService,
+    private likeService: LikeService,
     private photoService: PhotoService,
     private router: Router) {
   }
 
 
-  ngOnInit() {
-    this.reloadData();
+  ngOnInit() {}
+
+  profil() {
+    const geek = JSON.parse(window.sessionStorage.getItem('geek'));
+    return geek;
   }
 
-  reloadData() {
-    const idGeek = JSON.parse(localStorage.getItem('id')).login;
-    this.geeks = this.geekService.getOne();
+  photo() {
+    const geek = JSON.parse(window.sessionStorage.getItem('geek'));
+    const geekId = geek.id;
+   this.likeService.getById(geekId).subscribe(photo => console.log(photo.url));
+    return this.likeService.getById(geekId);
   }
-
-
 }

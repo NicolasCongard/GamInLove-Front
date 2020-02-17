@@ -1,12 +1,12 @@
-<tr *ngFor="let geek of geeks| async">
-  <h2>
-    Pseudonyme : {{geek.pseudo}}
-    <br>
-    Sexe : {{geek.sexe}}
-    <br>
-    Ville : {{geek.ville}}
-    <br>
-    Age : {{geek.age}}
-  </h2>
-</tr>
+<h2>
+  Pseudonyme : {{profil().pseudo}}
+  <br>
+  Sexe : {{profil().sexe}}
+  <br>
+  Ville : {{profil().ville}}
+  <br>
+  Age : {{profil().age}}
+  <br>
+  Galerie photo : {{photo()}}
+</h2>
 <app-upload></app-upload>
