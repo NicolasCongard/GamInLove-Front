@@ -7,6 +7,6 @@
   <br>
   Age : {{geek.age}}
   <br>
-  Galerie photo : <div class="galerie" *ngFor="let photo of photos"><img [src]="photo"></div>
+  Galerie photo : <div class="galerie"> <span *ngFor="let photo of photos"><img [src]="photo"></span></div>
 </div>
 <app-upload></app-upload>

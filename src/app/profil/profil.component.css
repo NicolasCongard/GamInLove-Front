@@ -9,5 +9,5 @@ img {
 }
 .galerie{
   display: flex;
-  flex-wrap: nowrap
+  flex-wrap: nowrap;
 }
