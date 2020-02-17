@@ -1,0 +1,11 @@
+img {
+  height: auto;
+  max-width: 300px;
+}
+.galerie{
+  display: flex;
+  flex-wrap: wrap;
+}
+.wrapper{
+  width: 100%;
+}

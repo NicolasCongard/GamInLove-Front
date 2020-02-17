@@ -2,12 +2,3 @@
   font-family: "Outrun future";
   padding-left: 5px;
 }
-
-img {
-  max-height: 300px;
-  max-width: 300px;
-}
-.galerie{
-  display: flex;
-  flex-wrap: nowrap;
-}

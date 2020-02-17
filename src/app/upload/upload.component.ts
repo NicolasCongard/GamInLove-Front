@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Geek } from '../_models/geek';
 import { Photo } from '../_models/photo';
-import { Router } from '@angular/router';
 import  { GeekService } from '../_services/geek/geek.service';
 import  { PhotoService } from '../_services/photo/photo.service';
 import {LikeService} from '../_services/like/like.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-upload',
@@ -26,11 +26,12 @@ export class UploadComponent implements OnInit {
     private photoService: PhotoService,
     private geekService: GeekService,
     private likeService: LikeService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
     this.initForm();
+    this.afficherPhoto();
   }
 
   initForm() {
@@ -46,9 +47,8 @@ export class UploadComponent implements OnInit {
     }
     this.geek = JSON.parse(window.sessionStorage.getItem('geek'));
     const geekId = this.geek.id;
-    console.log("coucou" + photo);
     this.geekService.savePhoto(photo, geekId).subscribe();
-
+    location.reload();
   }
 
   onUploadFile(file: File) {
@@ -66,5 +66,16 @@ export class UploadComponent implements OnInit {
     this.onUploadFile(event.target.files[0]);
   }
 
-}
+  afficherPhoto() {
+    this.geek = JSON.parse(window.sessionStorage.getItem('geek'));
+    this.likeService.getById(this.geek.id).subscribe(
+      photos => this.photos = photos
+    );
+  }
 
+  deletePhoto(id: number) {
+    console.log("id" + id);
+    this.photoService.delOnePhoto(id).subscribe();
+    location.reload();
+  }
+}
