@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {Geek} from '../_models/geek';
 import {Recherche} from '../_models/recherche';
 import {GeekService} from '../_services/geek/geek.service';
+import { RechercheService} from '../_services/recherche/recherche.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
@@ -14,18 +15,18 @@ export class RechercheComponent implements OnInit {
   geeks: Observable<Geek[]>;
   geek: Geek = new Geek();
 
-  private rechercheForm: FormGroup;
   searchForm: FormGroup;
 
   constructor(private fb: FormBuilder,
               private geekService: GeekService,
+              private rechercheService: RechercheService,
               ) {
 
   }
 
   ngOnInit() {
     this.reloadData();
-    this.rechercheForm = this.fb.group( {
+    this.searchForm= this.fb.group( {
       sexe:[''],
       ville:[''],
       ageMin:['18'],
@@ -45,7 +46,9 @@ export class RechercheComponent implements OnInit {
     recherche.ageMin = this.searchForm.get('ageMin').value;
     recherche.ageMax = this.searchForm.get('ageMax').value;
     recherche.jeu = this.searchForm.get('jeu').value;
-   console.log(recherche.ville);
+    this.rechercheService.searchGeek(recherche).subscribe(
+      geekSearch => console.log(geekSearch)
+    )
   }
 }
 

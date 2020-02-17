@@ -4,13 +4,15 @@ import { Observable } from 'rxjs';
 import {Photo} from '../../_models/photo';
 import * as firebase from 'firebase';
 import {Geek} from '../../_models/geek';
+import {Recherche} from '../../_models/recherche';
+import {Mp} from '../../_models/mp';
 
 
 @Injectable({
 	providedIn: 'root'
 })
 export class RechercheService {
-	private baseUrl = 'http://localhost:8080/recherche/search/';
+	private baseUrl = 'http://localhost:8080/recherche/search';
   private geek: Geek;
 
 	constructor(private http: HttpClient) { }
@@ -33,9 +35,11 @@ export class RechercheService {
           );
       });
   }
-  searchGeek(sexe: string, ville: string, ageMin: number, ageMax: number, jeu: string) {
-    return this.geek;
-
+  searchGeek(recherche: Recherche): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}`, recherche);
   }
 
+  createSearch(sexe: string, ville: string, ageMin: number, ageMax: number, jeu: string) {
+
+  }
 }
