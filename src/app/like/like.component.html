@@ -1,24 +1,25 @@
 <h1>L❤️VE ton GEEK&nbsp;&nbsp;&nbsp;&nbsp;#YaourtAuxFruits</h1>
 
 <form>
-
-  <tr *ngFor="let photo of photos| async">
-    <img src="{{ photo.url }}">
-  </tr>
+	<tr *ngFor="let photo of photos">
+	</tr>
 	<tr *ngFor="let geek of geeks| async">
-		<h2>
-			Pseudonyme : {{geek.pseudo}}
-			<br>
-			Sexe : {{geek.sexe}}
-			<br>
-			Ville : {{geek.ville}}
-			<br>
-			Age : {{geek.age}}
-		</h2>
-		<p>
-			<button class="bouton" type="submit">❤️</button>
-			<button class="bouton" type="submit">💛</button>
-			<button class="bouton" type="submit">❌</button>
-		</p>
+		<div *ngIf="geek.pseudo != geekPseudo || geek.action">
+			<div>
+				Pseudonyme : {{geek.pseudo}}
+				<br>
+				Sexe : {{geek.sexe}}
+				<br>
+				Ville : {{geek.ville}}
+				<br>
+				Age : {{geek.age}}
+				<br>
+				<p>
+					<button (click)="superlike(geek, 'superlike')" class="bouton" type="submit">❤️</button>
+					<button (click)="like(geek, 'like')" class="bouton" type="submit">💛</button>
+					<button class="bouton" type="submit">❌</button>
+				</p>
+			</div>
+		</div>
 	</tr>
 </form>

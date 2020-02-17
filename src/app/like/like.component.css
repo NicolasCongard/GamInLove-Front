@@ -1,19 +1,23 @@
 @font-face {
-    font-family: "outrunfuture";
-    src: url('/Dafont/Outrun future.eot') format('eot'),
-         url('/Dafont/Outrun future.otf') format('otf'),
-         url('/Dafont/Outrun-future.ttf') format('ttf'),
+  font-family: "outrunfuture";
+  src: url('/Dafont/Outrun future.eot') format('eot'),
+    url('/Dafont/Outrun future.otf') format('otf'),
+    url('/Dafont/Outrun-future.ttf') format('ttf'),
 }
+
 * {
-      font-family: Outrun future;
+  font-family: Outrun future;
 }
+
 img {
   max-height: 300px;
   max-width: 300px;
 }
+
 form {
   margin-left: 10px;
 }
+
 h1 {
 
   color: white;
@@ -22,12 +26,12 @@ h1 {
 }
 
 .bouton {
-background: transparent;
-margin: 1px;
-font-size: 25px;
-
+  background: transparent;
+  margin: 1px;
+  font-size: 25px;
 }
- button {
-     border-width: 0px;
-     outline: none;
- }
+
+button {
+  border-width: 0px;
+  outline: none;
+}
