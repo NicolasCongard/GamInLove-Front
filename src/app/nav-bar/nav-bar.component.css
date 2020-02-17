@@ -54,6 +54,7 @@ li img {
 .pseudo {
   color: red;
   margin-top: 0px;
+  margin-right: 15px;
   float: right;
   font-size: 10px;
   font-family: Outrun future;

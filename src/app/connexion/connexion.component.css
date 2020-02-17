@@ -60,6 +60,8 @@ label {
 
 input {
   border: none;
+  font-family: kindergarten;
+  font-weight: bold;
   background-color: #acacac;
   width: 100%;
   height: 25px;

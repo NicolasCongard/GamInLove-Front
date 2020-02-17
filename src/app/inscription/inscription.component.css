@@ -1,4 +1,4 @@
-* :not(.special){
+* {
   font-family: "Outrun future";
 }
 h1 {
@@ -78,8 +78,9 @@ h1 {
   float: right;
 }
 input[type="email"], input[type="password"]{
-  font-family: flyingleatherv2_3 !important;
-  font-weight: bolder;
+  font-family: kindergarten !important;
+  font-weight: bold !important;
+  font-size: 1.2em !important;
 }
 span{
   color: red;
