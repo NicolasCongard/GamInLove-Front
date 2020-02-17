@@ -1,4 +1,4 @@
-<h2>
+
   Pseudonyme : {{geek.pseudo}}
   <br>
   Sexe : {{geek.sexe}}
@@ -7,6 +7,6 @@
   <br>
   Age : {{geek.age}}
   <br>
-  Galerie photo : {{photos}}
-</h2>
+  Galerie photo : <div *ngFor="let photo of photos"><img [src]="photo"></div>
+
 <app-upload></app-upload>

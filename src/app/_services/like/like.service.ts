@@ -16,7 +16,7 @@ export class LikeService {
 	getAll(): Observable<any> {
 		return this.http.get(`${this.baseUrl}`);
 	}
-  getById(id: number): Observable<Photo> {
-    return this.http.get<Photo>(`${this.baseUrlPhoto}`+id);
+  getById(id: number): Observable<Photo[]> {
+    return this.http.get<Photo[]>(`${this.baseUrlPhoto}`+id);
   }
 }
