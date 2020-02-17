@@ -23,7 +23,6 @@ export class ConnexionComponent implements OnInit {
   isShow = false;
   errorMessage: string;
   signinForm: FormGroup;
-  geekz;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -46,8 +45,6 @@ export class ConnexionComponent implements OnInit {
 
   reloadData() {
     this.geeks = this.authService.getAll();
-    const email = JSON.parse(localStorage.getItem('email')).login;
-    this.geekz = this.geekService.auth(email);
   }
 
   initForm() {

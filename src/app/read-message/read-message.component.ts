@@ -26,7 +26,9 @@ export class ReadMessageComponent implements OnInit {
   }
 
   reloadData() {
-    this.mps = this.messageService.getAllMP(1, this.mp.geekCible.id);
+    const geek = JSON.parse(window.sessionStorage.getItem('geek'));
+    const idGeek = geek.id;
+    this.mps = this.messageService.getAllMP(idGeek, this.mp.geekCible.id);
   }
 
   saveMp(geekMP: Geek, geekCible: Geek, message: string) {

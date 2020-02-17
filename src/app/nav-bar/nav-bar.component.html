@@ -6,9 +6,7 @@
     <li><a routerLink="message">Message</a></li>
     <li><a routerLink="recherche">Recherche</a></li>
     <li><a routerLink="event">Events</a></li>
-    <li *ngFor="let geek of geeks | async">
-      <p>{{geek.pseudo}}</p>
-    </li>
     <li><img src="https://image.flaticon.com/icons/svg/565/565503.svg" (click)="onSignOut() " style="cursor:pointer"></li>
   </ul>
+  <p *ngIf="isAuth" class="pseudo">Vous êtes connecté en tant que {{pseudo()}} !</p>
 </div>

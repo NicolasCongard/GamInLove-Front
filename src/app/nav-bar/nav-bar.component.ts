@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth/auth.service';
 import * as firebase from 'firebase';
-import { GeekService } from '../_services/geek/geek.service';
-
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -12,12 +10,10 @@ import { GeekService } from '../_services/geek/geek.service';
 export class NavBarComponent implements OnInit {
 
   isAuth: boolean;
-  geeks;
 
   constructor(
     private router: Router,
     private authService: AuthService,
-    private geekService: GeekService,
   ) {
   }
 
@@ -39,6 +35,11 @@ export class NavBarComponent implements OnInit {
 
   onSignOut() {
     this.authService.signOutUser();
+  }
+
+  pseudo() {
+    const geek = JSON.parse(window.sessionStorage.getItem('geek'));
+    return geek.pseudo;
   }
 
 }

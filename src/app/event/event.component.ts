@@ -3,7 +3,6 @@ import { EventService } from '../_services/event/event.service';
 import { Observable } from 'rxjs';
 import { Event } from '../_models/event';
 import { Geek } from '../_models/geek';
-import { GeekService } from '../_services/geek/geek.service';
 
 @Component({
   selector: 'app-event',
@@ -13,13 +12,11 @@ import { GeekService } from '../_services/geek/geek.service';
 export class EventComponent implements OnInit {
 
   events: Observable<Event[]>;
-  idGeeks;
   geek: Geek = new Geek();
   submitted = false;
 
   constructor(
-    private eventService: EventService,
-    private geekService: GeekService
+    private eventService: EventService
   ) { }
 
   ngOnInit() {
@@ -28,23 +25,16 @@ export class EventComponent implements OnInit {
 
   reloadData() {
     this.events = this.eventService.getAll();
-    const email = JSON.parse(localStorage.getItem('email')).login;
-    this.idGeeks = this.geekService.auth(email);
-  }
-
-  getLogin() {
-    const email = JSON.parse(localStorage.getItem('email')).login;
-    this.idGeeks = this.geekService.auth(email);
-    return this.geekService.auth(email);
   }
 
   onSubmit() {
     this.submitted = true;
   }
 
-  onSelect(event, id: number, idGeek: number) {
+  onSelect(event, id: number) {
     if (event.target.checked) {
-      // const idGeek = 1;
+      const geek = JSON.parse(window.sessionStorage.getItem('geek'));
+      const idGeek = geek.id;
       this.eventService.addParticipant(id, idGeek)
         .subscribe(data => console.log(data), error => console.log(error));
     }

@@ -13,6 +13,7 @@ img {
   margin-left: auto;
   margin-right: auto;
   padding: 30px;
+  outline: none;
 }
 
 ul {
@@ -44,18 +45,16 @@ li a:hover {
   text-shadow: 1px 1px 1px black;
 }
 
-img {
-  outline: none;
-}
-
-p {
-  color: red;
-  font-size: 25px;
-  margin: 0px;
-}
-
-li img{
+li img {
   height: 40px;
   margin: 0px;
   padding: 10px 0px 0px 0px;
+}
+
+.pseudo {
+  color: red;
+  margin-top: 0px;
+  float: right;
+  font-size: 10px;
+  font-family: Outrun future;
 }
