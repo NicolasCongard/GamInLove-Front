@@ -5,6 +5,7 @@ import { Geek } from '../_models/geek';
 import { Router } from '@angular/router';
 import {Photo} from '../_models/photo';
 import {PhotoService} from '../_services/photo/photo.service';
+import {LikeService} from '../_services/like/like.service';
 
 @Component({
   selector: 'app-like',
