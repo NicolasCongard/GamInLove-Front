@@ -23,8 +23,8 @@ export class GeekService {
     return this.http.get(`${this.baseUrl}/id`);
   }
 
-  auth(token: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}auth?token=`+token);
+  auth(token: string): Observable<Geek> {
+    return this.http.get<Geek>(`${this.baseUrl}auth?token=`+token);
   }
 
   uploadPhoto(file: File) {
