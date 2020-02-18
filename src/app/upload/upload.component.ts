@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Geek } from '../_models/geek';
 import { Photo } from '../_models/photo';
-import  { GeekService } from '../_services/geek/geek.service';
-import  { PhotoService } from '../_services/photo/photo.service';
-import {LikeService} from '../_services/like/like.service';
+import { GeekService } from '../_services/geek/geek.service';
+import { PhotoService } from '../_services/photo/photo.service';
+import { LikeService } from '../_services/like/like.service';
 
 @Component({
   selector: 'app-upload',
@@ -40,7 +40,7 @@ export class UploadComponent implements OnInit {
 
   onSavePhoto() {
     const photo = new Photo();
-    if(this.fileUrl && this.fileUrl !== '') {
+    if (this.fileUrl && this.fileUrl !== '') {
       photo.url = this.fileUrl;
     }
     this.geek = JSON.parse(window.sessionStorage.getItem('geek'));

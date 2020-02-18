@@ -35,7 +35,7 @@ export class MessageService {
    *
    * @param newMp
    */
-  addNew(newMp: Mp): Observable<Mp[]> {
-    return this.http.post<Mp[]>(`${this.baseUrl}`, newMp);
+  addNew(newMp: Mp): Observable<Mp> {
+    return this.http.post<Mp>(`${this.baseUrl}`, newMp);
   }
 }
