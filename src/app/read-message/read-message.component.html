@@ -16,7 +16,7 @@
 					<label for="message"></label>
 					<textarea rows="5" cols="30" #message id="message" required name="message"></textarea>
 				</div>
-				<button (click)="saveMp(mp.geekMP, mp.geekCible, message.value)" type="submit">Envoyer</button>
+				<button (click)="saveMp(action.geekAction, action.geekCible, message.value)" type="submit">Envoyer</button>
 			</form>
 		</div>
 		<div [hidden]="!submitted">
