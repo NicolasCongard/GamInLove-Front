@@ -24,7 +24,14 @@
     </div>
   </div>
 </div>
+<form>
+<tr *ngFor="let geek of pseudos">
 
-<p *ngFor="let geek of pseudos">
-  {{geek}}
-</p>
+  <p class="geekp">{{geek}}</p>
+  <p>
+    <button class="bouton" type="submit">❤️</button>
+    <button class="bouton" type="submit">💛</button>
+    <button class="bouton" type="submit">❌</button>
+  </p>
+</tr>
+</form>

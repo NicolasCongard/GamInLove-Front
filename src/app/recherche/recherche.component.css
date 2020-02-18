@@ -78,3 +78,19 @@ h1 {
   background:linear-gradient(to bottom, #2e2e2e 5%, #2e2e2e 100%);
   background-color:#2e2e2e;
 }
+.bouton {
+  background: transparent;
+  margin: 1px;
+  font-size: 25px;
+
+}
+button {
+  border-width: 0px;
+  outline: none;
+}
+p {
+  margin: 2px auto;
+  position: center;
+  text-align: center;
+
+}
