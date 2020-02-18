@@ -5,7 +5,6 @@ import { Photo } from '../_models/photo';
 import  { GeekService } from '../_services/geek/geek.service';
 import  { PhotoService } from '../_services/photo/photo.service';
 import {LikeService} from '../_services/like/like.service';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-upload',
@@ -26,7 +25,6 @@ export class UploadComponent implements OnInit {
     private photoService: PhotoService,
     private geekService: GeekService,
     private likeService: LikeService,
-    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -74,7 +72,6 @@ export class UploadComponent implements OnInit {
   }
 
   deletePhoto(id: number) {
-    console.log("id" + id);
     this.photoService.delOnePhoto(id).subscribe();
     location.reload();
   }

@@ -1,15 +1,16 @@
 <div class="wrapper">
-  <div class="galerie"><span *ngFor="let photo of photos"><img [src]="photo.url"><span (click)="deletePhoto(photo.id)">X</span></span></div>
+  <div class="galerie"><span *ngFor="let photo of photos"><img [src]="photo.url"><span class="delete" (click)="deletePhoto(photo.id)">X</span></span></div>
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <h2>Ajouter une nouvelle Photo</h2>
       <form [formGroup]="uploadForm" (ngSubmit)="onSavePhoto()">
         <div class="form-group">
-          <input type="file" (change)="detectFiles($event)"
-                 class="form-control" accept="image/*">
+          <label for="file" class="label-file">Choisir une image</label>
+          <input type="file" id="file" (change)="detectFiles($event)"
+                 class="form-control input-file" accept="image/*">
           <p class="text-success" *ngIf="fileUploaded">Fichier chargé !</p>
         </div>
-        <button class="btn btn-success" [disabled]="uploadForm.invalid || fileIsUploading"
+        <button class="btn btn-success" [disabled]="!fileUploaded"
                 type="submit">Enregistrer
         </button>
       </form>
