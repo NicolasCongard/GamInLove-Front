@@ -5,7 +5,9 @@ import { Geek } from '../_models/geek';
 import { Photo } from '../_models/photo';
 import { LikeService } from '../_services/like/like.service';
 import { Action } from '../_models/action';
-import { ActionService } from '../_services/action/action.service';
+import {ActivatedRoute} from '@angular/router';
+import {RechercheService} from '../_services/recherche/recherche.service';
+import {Recherche} from '../_models/recherche';
 
 @Component({
   selector: 'app-like',
@@ -15,27 +17,27 @@ import { ActionService } from '../_services/action/action.service';
 export class LikeComponent implements OnInit {
 
   geeks: Observable<Geek[]>;
-  actions: Observable<Action[]>;
   photos: Photo[];
   geekPseudo;
-  geekId;
 
   constructor(
     private geekService: GeekService,
     private likeService: LikeService,
-    private actionService: ActionService
+    private rechercheService: RechercheService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.reloadData();
+    this.route.queryParams.subscribe(params => console.log(params))
   }
 
   reloadData() {
     this.geeks = this.geekService.getAll();
-    this.actions = this.actionService.getAll();
     const geek = JSON.parse(window.sessionStorage.getItem('geek'));
     this.geekPseudo = geek.pseudo;
-    this.geekId = geek.id;
+    let recherche;
+    this.rechercheService.goLiker(recherche);
   }
 
   superlike(geekCible: Geek, typeAction: string) {

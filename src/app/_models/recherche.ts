@@ -8,4 +8,5 @@ export class Recherche {
     ageMin: number;
     ageMax: number;
     jeu: string;
+
 }

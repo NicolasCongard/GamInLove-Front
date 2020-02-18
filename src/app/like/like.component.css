@@ -9,6 +9,18 @@ img {
 
 form {
   margin-left: 10px;
+  background-color: #333333;
+  color: #dddddd;
+  margin-left:50px;
+  margin-right:50px;
+  padding: 20px;
+  width:auto;
+  border-width: 3px 5px 5px 5px;
+  border-radius:4%;
+  float:left;
+  position: relative;
+  top: 60%; left: 35%; /* à 50%/50% du parent référent */
+
 }
 
 h1 {
@@ -22,6 +34,7 @@ h1 {
   background: transparent;
   margin: 1px;
   font-size: 25px;
+  align-content: center;
 }
 
 button {

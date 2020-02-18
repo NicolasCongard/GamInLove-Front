@@ -57,7 +57,7 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
       { path: 'recherche', canActivate: [AuthGuardService], component: RechercheComponent },
       { path: 'event', canActivate: [AuthGuardService], component: EventComponent },
       { path: 'inscription', component: InscriptionComponent },
-      { path: 'upload', component: UploadComponent },
+      { path: 'upload', canActivate: [AuthGuardService], component: UploadComponent },
       { path: '**', component: Error404Component },
     ]),
   ],
