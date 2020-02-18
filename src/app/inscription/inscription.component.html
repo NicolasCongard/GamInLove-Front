@@ -7,7 +7,7 @@
           <div class="form-group">
             <label for="pseudo">Pseudo
               <div class="error" *ngIf="submitted && f.pseudo.errors">
-              <span *ngIf="submitted && f.pseudo.errors.required">vide.</span>
+                <span *ngIf="submitted && f.pseudo.errors.required">vide.</span>
               </div>
             </label>
             <input type="text" id="pseudo" class="form-control" formControlName="pseudo">
@@ -15,8 +15,8 @@
           <div class="form-group">
             <label for="password">Mot de passe
               <div class="error" *ngIf="submitted && f.password.errors">
-              <span *ngIf="f.password.errors.required">vide.</span>
-              <span *ngIf="f.password.errors.pattern">trop court.</span>
+                <span *ngIf="f.password.errors.required">vide.</span>
+                <span *ngIf="f.password.errors.pattern">trop court.</span>
               </div>
             </label>
             <input type="password" id="password" class="form-control" formControlName="password">
@@ -58,6 +58,10 @@
               </div>
             </label>
             <input type="email" id="email" class="form-control" formControlName="email">
+          </div>
+          <div class="form-group">
+            <label for="descritpion">Ma vie</label>
+            <input type="email" id="descritpion" class="form-control" formControlName="descritpion">
           </div>
           <input type="submit" value="Ché ok pour mi"/>
           <input type="reset" value="Arceuminche" (click)="resetUserForm()"/>

@@ -59,6 +59,7 @@ export class InscriptionComponent implements OnInit {
     geek.sexe = this.inscriptionForm.get('sexe').value;
     geek.email = this.inscriptionForm.get('email').value;
     geek.password = this.inscriptionForm.get('password').value;
+    geek.description = this.inscriptionForm.get('description').value;
     geek.typeCompte = 'Basic';
     this.authService.createNewUser(geek.email, geek.password).then(
       () => {
