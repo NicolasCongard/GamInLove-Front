@@ -1,1 +1,16 @@
-<p>coopdispo works!</p>
+<div class="modal-mask">
+	<div class="modal-wrapper">
+		<div class="modal-container">
+			<div>
+				<h1>COOP DISPO !</h1>
+				<h2>avec {{geekPseudo}} !</h2>
+				<div *ngFor="let photo of photos">
+					<img [src]="photo.url">
+				</div>
+				<button>Continuer</button>
+				<button>Envoyer un message</button>
+				<!-- <app-read-message></app-read-message> -->
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,7 +1,7 @@
 <h1>L❤️VE ton GEEK&nbsp;&nbsp;&nbsp;&nbsp;#YaourtAuxFruits</h1>
 <div class="like">
 	<tr *ngFor="let geek of geeks | async, let index = index, let isFirst = first">
-		<div *ngIf="geek.pseudo != geekPseudo && isFirst === true">
+		<div *ngIf="geek.pseudo != geekPseudo">
 			Pseudonyme : {{geek.pseudo}}
 			<br>
 			Sexe : {{geek.sexe}}
@@ -15,7 +15,14 @@
 				<button (click)="like(geek, 'like')" class="bouton" type="submit">💛</button>
 				<button class="bouton" type="submit">❌</button>
 			</p>
+
+			<div *ngFor="let action of actions | async">
+				<div *ngIf="geekId == action.geekCible.id && geek.id == action.geekAction.id">}
+					<app-coopdispo [geekPseudo]="geek.pseudo" [geekId]="geek.id"></app-coopdispo>
+				</div>
+			</div>
 		</div>
 	</tr>
 </div>
 <!-- *ngIf="geek.pseudo != geekPseudo && isFirst === true" -->
+<!-- && isFirst === true -->

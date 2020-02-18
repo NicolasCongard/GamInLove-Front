@@ -5,6 +5,7 @@ import { Geek } from '../_models/geek';
 import { Photo } from '../_models/photo';
 import { LikeService } from '../_services/like/like.service';
 import { Action } from '../_models/action';
+import { ActionService } from '../_services/action/action.service';
 
 @Component({
   selector: 'app-like',
@@ -14,12 +15,15 @@ import { Action } from '../_models/action';
 export class LikeComponent implements OnInit {
 
   geeks: Observable<Geek[]>;
+  actions: Observable<Action[]>;
   photos: Photo[];
   geekPseudo;
+  geekId;
 
   constructor(
     private geekService: GeekService,
-    private likeService: LikeService
+    private likeService: LikeService,
+    private actionService: ActionService
   ) { }
 
   ngOnInit() {
@@ -28,8 +32,10 @@ export class LikeComponent implements OnInit {
 
   reloadData() {
     this.geeks = this.geekService.getAll();
+    this.actions = this.actionService.getAll();
     const geek = JSON.parse(window.sessionStorage.getItem('geek'));
     this.geekPseudo = geek.pseudo;
+    this.geekId = geek.id;
   }
 
   superlike(geekCible: Geek, typeAction: string) {
