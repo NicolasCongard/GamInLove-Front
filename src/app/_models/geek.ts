@@ -13,6 +13,7 @@ export class Geek {
     typeCompte: string;
     email: string;
     token: string;
+    description: string;
     photos: Array<Photo>;
     recherches: Array<string>;
     coop: Array<string>;

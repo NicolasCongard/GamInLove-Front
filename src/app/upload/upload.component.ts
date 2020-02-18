@@ -46,7 +46,7 @@ export class UploadComponent implements OnInit {
     this.geek = JSON.parse(window.sessionStorage.getItem('geek'));
     const geekId = this.geek.id;
     this.geekService.savePhoto(photo, geekId).subscribe(photo => this.photos.push(photo));
-    //location.reload();
+    this.fileUploaded = false;
   }
 
   onUploadFile(file: File) {

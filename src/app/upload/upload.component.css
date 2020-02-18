@@ -1,15 +1,14 @@
 img {
   height: auto;
-  max-width: 300px;
+  width: 200px;
+  margin-top: 3vh;
 }
 
 .galerie {
   display: flex;
   flex-wrap: wrap;
-}
-
-.wrapper {
-  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 0;
 }
 
 .delete {

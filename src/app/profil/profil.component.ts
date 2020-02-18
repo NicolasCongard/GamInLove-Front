@@ -22,5 +22,6 @@ export class ProfilComponent implements OnInit {
 
   ngOnInit() {
     this.geek = JSON.parse(window.sessionStorage.getItem('geek'));
+    console.log(this.geek);
   }
 }
