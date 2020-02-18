@@ -31,10 +31,7 @@ button {
   padding: 8px 18px;
   text-decoration: none;
   text-transform: uppercase;
-}
-
-button:hover {
-  background: #2e2e2e linear-gradient(to bottom, #2e2e2e 5%, #2e2e2e 100%);
+  margin-bottom: 1vh;
 }
 
 .label-file {

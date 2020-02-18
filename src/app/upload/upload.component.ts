@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Geek } from '../_models/geek';
 import { Photo } from '../_models/photo';
 import  { GeekService } from '../_services/geek/geek.service';
@@ -45,8 +45,8 @@ export class UploadComponent implements OnInit {
     }
     this.geek = JSON.parse(window.sessionStorage.getItem('geek'));
     const geekId = this.geek.id;
-    this.geekService.savePhoto(photo, geekId).subscribe();
-    location.reload();
+    this.geekService.savePhoto(photo, geekId).subscribe(photo => this.photos.push(photo));
+    //location.reload();
   }
 
   onUploadFile(file: File) {
@@ -71,8 +71,8 @@ export class UploadComponent implements OnInit {
     );
   }
 
-  deletePhoto(id: number) {
-    this.photoService.delOnePhoto(id).subscribe();
-    location.reload();
+  deletePhoto(id: number, photo: Photo) {
+    let pos = this.photos.indexOf(photo);
+    this.photoService.delOnePhoto(id).subscribe(() => this.photos.splice(pos, 1));
   }
 }

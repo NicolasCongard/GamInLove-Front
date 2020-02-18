@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="galerie"><span *ngFor="let photo of photos"><img [src]="photo.url"><span class="delete" (click)="deletePhoto(photo.id)">X</span></span></div>
+  <div class="galerie"><span *ngFor="let photo of photos"><img [src]="photo.url"><span class="delete" (click)="deletePhoto(photo.id, photo)">X</span></span></div>
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <h2>Ajouter une nouvelle Photo</h2>
