@@ -63,7 +63,7 @@ export class RechercheComponent implements OnInit {
     recherche.ageMax = this.searchForm.get('ageMax').value;
     console.log(recherche);
     this.rechercheService.goLiker(this.recherche);
-
+    console.log(this.pseudos);
 
   }
 }

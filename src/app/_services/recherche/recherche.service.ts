@@ -22,5 +22,5 @@ export class RechercheService {
   }
   goLiker(recherche) {
     this.router.navigate(['/like']/*, { queryParams: { sexe: recherche.sexe, ville: recherche.ville, ageMin: recherche.ageMin, ageMax: recherche.ageMax } }*/);
-  }
+	}
 }

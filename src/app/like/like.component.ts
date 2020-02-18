@@ -36,7 +36,7 @@ export class LikeComponent implements OnInit {
     this.geeks = this.geekService.getAll();
     const geek = JSON.parse(window.sessionStorage.getItem('geek'));
     this.geekPseudo = geek.pseudo;
-    let recherche;
+    let recherche = [];
     this.rechercheService.goLiker(recherche);
   }
 
