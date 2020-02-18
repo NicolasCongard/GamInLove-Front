@@ -22,8 +22,5 @@ export class ProfilComponent implements OnInit {
 
   ngOnInit() {
     this.geek = JSON.parse(window.sessionStorage.getItem('geek'));
-    this.likeService.getById(this.geek.id).subscribe(
-      photos => this.photos = photos
-    );
   }
 }

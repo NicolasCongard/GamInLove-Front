@@ -1,0 +1,51 @@
+img {
+  height: auto;
+  max-width: 300px;
+}
+
+.galerie {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.delete {
+  color: red;
+  cursor: pointer;
+}
+
+button {
+  -moz-box-shadow: inset 0px 1px 0px 0px #2e2e2e;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #2e2e2e;
+  box-shadow: inset 0px 1px 0px 0px #2e2e2e;
+  background-color: #2e2e2e;
+  border: 1px solid #2e2e2e;
+  display: inline-block;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-family: "outrun future";
+  font-size: 14px;
+  padding: 8px 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background: #2e2e2e linear-gradient(to bottom, #2e2e2e 5%, #2e2e2e 100%);
+}
+
+.label-file {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.label-file:hover {
+  color: red;
+}
+
+.input-file {
+  display: none;
+}
