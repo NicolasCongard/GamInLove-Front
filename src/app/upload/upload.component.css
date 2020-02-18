@@ -45,3 +45,7 @@ button {
 .input-file {
   display: none;
 }
+.upload {
+  width: 100%;
+  text-align: center;
+}

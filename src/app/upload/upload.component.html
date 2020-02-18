@@ -1,15 +1,14 @@
+<div class="upload">
 <form [formGroup]="uploadForm" (ngSubmit)="onSavePhoto()">
 
   <label for="file" class="label-file"><h2><span class="delete">+</span> Ajouter une nouvelle Photo</h2></label>
   <input type="file" id="file" (change)="detectFiles($event)"
          class="form-control input-file" accept="image/*">
-  <p class="text-success" *ngIf="fileUploaded">Fichier chargé !</p>
-
   <button class="btn btn-success" *ngIf="fileUploaded" [disabled]="!fileUploaded"
           type="submit">Enregistrer
   </button>
 </form>
-
+</div>
 
 <div class="galerie">
     <span *ngFor="let photo of photos">
