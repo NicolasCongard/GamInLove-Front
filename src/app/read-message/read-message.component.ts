@@ -14,6 +14,7 @@ export class ReadMessageComponent implements OnInit {
 
   @Input() action: Action;
   mps;
+  // mpz: Mp[];
   geek: Geek;
   submitted = false
 
@@ -34,7 +35,7 @@ export class ReadMessageComponent implements OnInit {
 
   saveMp(geekMP: Geek, geekCible: Geek, message: string) {
     this.messageService.addNew({ geekMP, geekCible, message } as Mp)
-      .subscribe(data => this.mps.push(data));
+      // .subscribe(data => this.mpz.push(data));
     this.gotoList();
   }
 
