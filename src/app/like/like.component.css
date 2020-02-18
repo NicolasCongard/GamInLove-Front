@@ -28,3 +28,9 @@ button {
   border-width: 0px;
   outline: none;
 }
+
+.like {
+  margin: 0px auto;
+  width: 100px;
+
+}
