@@ -17,9 +17,18 @@ export class RechercheService {
   private recherche: Recherche;
 	constructor(private http: HttpClient, private router: Router) { }
 
+  /**
+   * Envois la base URL ainsi que les paramètres.
+   * @param recherche
+   */
   searchGeek(recherche: Recherche): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}`, recherche, this.httpOptions);
   }
+
+  /**
+   * Route l'utilisateur quand il clique sur le bouton [Cf HTML] avec des paramètres en URL pour faire sa recherche.
+   * @param recherche
+   */
   goLiker(recherche: Recherche) {
     this.router.navigate(['/like'], { queryParams: { sexe: recherche.sexe, ville: recherche.ville, ageMin: recherche.ageMin, ageMax: recherche.ageMax } });
 	}

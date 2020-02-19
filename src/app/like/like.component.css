@@ -14,15 +14,16 @@ img {
   padding: 25px;
   width:auto;
   border-width: 3px 5px 5px 5px;
+  box-shadow: 8px 5px 5px #454545;
   border-radius:4%;
   float:left;
   position: relative;
   top: 30%; left: 5%;
-  display: flex;
-  flex-wrap: nowrap;
+  flex-direction: column;
   justify-content:center;
-  margin-top: 5px;
+  margin-top: 10px;
   border: black 2px solid;
+
 
 }
 .cadre button {

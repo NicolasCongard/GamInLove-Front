@@ -28,6 +28,9 @@ export class RechercheComponent implements OnInit {
 
   }
 
+  /**
+   * Valeur du formulaire
+   */
   ngOnInit() {
     this.reloadData();
     this.searchForm = this.fb.group({
@@ -39,21 +42,16 @@ export class RechercheComponent implements OnInit {
     });
   }
 
+  /**
+   * Retourne tous les geeks
+   */
   reloadData() {
     this.geeks = this.geekService.getAll();
   }
 
- /* onSubmit() {
-    let recherche = new Recherche();
-    recherche.sexe = this.searchForm.get('sexe').value;
-    recherche.ville = this.searchForm.get('ville').value;
-    recherche.ageMin = this.searchForm.get('ageMin').value;
-    recherche.ageMax = this.searchForm.get('ageMax').value;
-    this.rechercheService.searchGeek(recherche).subscribe(
-      geekSearch => this.pseudos = geekSearch,
-      error => console.log('error' + error)
-    );
-  }*/
+  /**
+   * Récupère les valeurs inséré par l'utilisateur et les envoient
+   */
 
   goLike() {
     let recherche = new Recherche();
