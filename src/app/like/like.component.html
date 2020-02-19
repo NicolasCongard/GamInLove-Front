@@ -3,6 +3,7 @@
 	<div *ngIf="geekRecherche">
 		<div *ngFor="let geekFiltre of geekRecherche">
 			<div *ngIf="geekFiltre.pseudo != geekPseudo && !geekFiltre.coop[0]">
+				{{geekFiltre.photos | json}}
 				Pseudonyme : {{geekFiltre.pseudo}}
 				<br>
 				Sexe : {{geekFiltre.sexe}}

@@ -35,7 +35,7 @@ export class ReadMessageComponent implements OnInit {
 
   saveMp(geekMP: Geek, geekCible: Geek, message: string) {
     const date = new Date();
-    this.messageService.addNew({ geekMP, geekCible, message, date} as Mp).subscribe(mp => this.mpz.push(mp));
+    this.messageService.addNew({ geekMP, geekCible, message, date} as Mp).subscribe(message => this.mpz.push(message));
     this.gotoList();
   }
 

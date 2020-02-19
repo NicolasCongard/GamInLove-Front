@@ -1,14 +1,14 @@
 <div class="write">
-	<div class="bubble">
-		<div class="bubble-text">
-			<div *ngFor="let mp of mps | async">
+	<div>
+		<div *ngFor="let mp of mps | async">
+			<div class="bubble-text" *ngIf="mp">
 				<p>{{mp[1]}}</p>
 				{{mp[0] | date: 'dd/MM/yyyy'}} :
 				"{{mp[2]}}"
 			</div>
 		</div>
 	</div>
-	<div class="bubble2">
+	<div>
 		<div class="bubble-text2" [hidden]="submitted">
 			<h3>Ecrire un message</h3>
 			<form (ngSubmit)="onSubmit()">

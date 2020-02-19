@@ -24,7 +24,7 @@ export class LikeComponent implements OnInit {
   geekRecherche: Geek[] = [];
   geekPseudo: string;
   geekId: number;
-  private recherche: RechercheComponent; 
+  private recherche: RechercheComponent;
 
   constructor(
     private geekService: GeekService,
