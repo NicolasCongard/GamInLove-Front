@@ -1,5 +1,6 @@
 <h1>L❤️VE ton GEEK&nbsp;&nbsp;&nbsp;&nbsp;#YaourtAuxFruits</h1>
 <form>
+  <div *ngIf="pseudos">
   <div *ngFor="let geekFiltre of pseudos">
     <div>
       Pseudonyme : {{geekFiltre.pseudo}}
@@ -17,7 +18,9 @@
       </p>
     </div>
   </div>
-<!--
+  </div>
+
+  <div *ngIf="pseudos==''">
 <div *ngFor="let geek of geeks| async">
   <div *ngIf="geek.pseudo != geekPseudo || geek.action">
     <div>
@@ -37,5 +40,5 @@
     </div>
   </div>
 </div>
--->
+</div>
 </form>
