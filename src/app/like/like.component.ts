@@ -22,7 +22,7 @@ export class LikeComponent implements OnInit {
   photos: Photo[];
   geekRecherche: Geek[] = [];
   geekPseudo: string;
-  geekId: number;
+  geekId: number; 
 
   constructor(
     private geekService: GeekService,
