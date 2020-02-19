@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Mp } from '../_models/mp';
-import { MessageService } from '../_services/message/message.service';
 import { Observable } from 'rxjs';
+import { ActionService } from '../_services/action/action.service';
+import { Action } from '../_models/action';
 
 @Component({
   selector: 'app-message',
@@ -10,11 +10,11 @@ import { Observable } from 'rxjs';
 })
 export class MessageComponent implements OnInit {
 
-  mps: Observable<Mp>;
+  actions: Observable<Action>;
   showReadMessage: number;
 
   constructor(
-    private messageService: MessageService
+    private actionService: ActionService
   ) { }
 
   ngOnInit() {
@@ -24,7 +24,7 @@ export class MessageComponent implements OnInit {
   displayMp() {
     const geek = JSON.parse(window.sessionStorage.getItem('geek'));
     const idGeek = geek.id;
-    this.mps = this.messageService.getMpByGeek(idGeek);
+    this.actions = this.actionService.getActionByGeek(idGeek);
   }
 
   readMp(index: number) {

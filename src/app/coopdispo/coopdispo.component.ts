@@ -26,5 +26,4 @@ export class CoopdispoComponent implements OnInit {
       photos => this.photos = photos
     );
   }
-
 }

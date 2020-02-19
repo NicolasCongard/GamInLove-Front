@@ -3,6 +3,7 @@ import { Mp } from '../_models/mp';
 import { MessageService } from '../_services/message/message.service';
 import { Router } from '@angular/router';
 import { Geek } from '../_models/geek';
+import { Action } from '../_models/action';
 
 @Component({
   selector: 'app-read-message',
@@ -11,8 +12,9 @@ import { Geek } from '../_models/geek';
 })
 export class ReadMessageComponent implements OnInit {
 
-  @Input() mp: Mp;
+  @Input() action: Action;
   mps;
+  mpz: Mp[];
   geek: Geek;
   submitted = false
 
@@ -28,12 +30,12 @@ export class ReadMessageComponent implements OnInit {
   reloadData() {
     const geek = JSON.parse(window.sessionStorage.getItem('geek'));
     const idGeek = geek.id;
-    this.mps = this.messageService.getAllMP(idGeek, this.mp.geekCible.id);
+    this.mps = this.messageService.getAllMP(idGeek, this.action.geekCible.id);
   }
 
   saveMp(geekMP: Geek, geekCible: Geek, message: string) {
-    this.messageService.addNew({ geekMP, geekCible, message } as Mp)
-      .subscribe(data => console.log(data), error => console.log(error));
+    const date = new Date();
+    this.messageService.addNew({ geekMP, geekCible, message, date} as Mp).subscribe(mp => this.mpz.push(mp));
     this.gotoList();
   }
 
