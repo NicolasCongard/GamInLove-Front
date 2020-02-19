@@ -24,7 +24,6 @@ export class LikeComponent implements OnInit {
   geekRecherche: Geek[] = [];
   geekPseudo: string;
   geekId: number;
-  private recherche: RechercheComponent;
   geek: Geek = new Geek();
 
   constructor(
@@ -61,7 +60,6 @@ export class LikeComponent implements OnInit {
     const geek = JSON.parse(window.sessionStorage.getItem('geek'));
     this.geekId = geek.id;
     this.geekPseudo = geek.pseudo;
-    let recherche = [];
   }
 
   superlike(geekCible: Geek, typeAction: string) {

@@ -1,10 +1,10 @@
-<h1>L❤️VE ton GEEK&nbsp;&nbsp;&nbsp;&nbsp;#YaourtAuxFruits</h1>
+<h1>L❤️ve ton GEEK&nbsp;&nbsp;&nbsp;&nbsp;#YaourtAuxFruits</h1>
 <form>
 	<div *ngIf="geekRecherche">
 		<div *ngFor="let geekFiltre of geekRecherche">
 			<div *ngIf="geekFiltre.pseudo != geekPseudo && !geekFiltre.coop[0]">
-				{{geekFiltre.photos | json}}
 				<div class="cadre">
+          <div class="photo" *ngIf="geekFiltre.photos[0]"><img src={{geekFiltre.photos[0].url}}></div>
 					Pseudonyme : {{geekFiltre.pseudo}}
 					<br>
 					Sexe : {{geekFiltre.sexe}}
@@ -31,11 +31,9 @@
 
 	<div *ngIf="geekRecherche == ''">
 		<div *ngFor="let geek of geeks| async">
-			<!-- <span *ngFor="let photo of photos">
-				<img [src]="photo.url">&nbsp;
-			</span> -->
 			<div *ngIf="geek.pseudo != geekPseudo && !geek.coop[0]">
 				<div class="cadre">
+          <div class="photo" *ngIf="geek.photos[0]"><img src={{geek.photos[0].url}}></div>
 					Pseudonyme : {{geek.pseudo}}
 					<br>
 					Sexe : {{geek.sexe}}
