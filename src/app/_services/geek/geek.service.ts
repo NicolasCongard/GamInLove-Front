@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import * as firebase from 'firebase';
 import { Photo } from '../../_models/photo';
 import { Geek } from '../../_models/geek';
-import {Recherche} from '../../_models/recherche';
+import { Recherche } from '../../_models/recherche';
+import {concatMap, map, mergeMap, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class GeekService {
   private id: number;
   private idGeek: number;
   private photo: Photo;
+  pokemons = [];
 
 
   constructor(private http: HttpClient) { }
@@ -29,11 +31,11 @@ export class GeekService {
   }
 
   auth(token: string): Observable<Geek> {
-    return this.http.get<Geek>(`${this.baseUrl}auth?token=`+token);
+    return this.http.get<Geek>(`${this.baseUrl}auth?token=` + token);
   }
 
   savePhoto(photo, idGeek): Observable<Photo> {
-    return this.http.post<Photo>(`${this.baseUrlPhoto}`+idGeek, photo);
+    return this.http.post<Photo>(`${this.baseUrlPhoto}` + idGeek, photo);
   }
 
   uploadPhoto(file: File) {

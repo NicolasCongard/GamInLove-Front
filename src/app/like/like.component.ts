@@ -37,7 +37,6 @@ export class LikeComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
-    this.afficherPhoto();
     let recherche = new Recherche();
     this.route.queryParams.subscribe(params => {
       recherche.sexe = params.sexe;
@@ -50,10 +49,10 @@ export class LikeComponent implements OnInit {
   }
 
   afficherPhoto() {
-    this.geek = JSON.parse(window.sessionStorage.getItem('geek'));
-    this.likeService.getById(this.geek.id).subscribe(
-      photos => this.photos = photos
-    );
+    // this.geek = JSON.parse(window.sessionStorage.getItem('geek'));
+    // this.likeService.getById(id).subscribe(
+    //   photos => this.photos = photos
+    // );
   }
   reloadData() {
     this.geeks = this.geekService.getAll();
