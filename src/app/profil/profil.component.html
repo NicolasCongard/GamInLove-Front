@@ -18,6 +18,9 @@
       Ma life :
       <br>
       {{geek.description}}
+      <br>
+      Modification <span (click)="showModif()" class="modif">🖊️</span>
+      <app-modification *ngIf="showModification"></app-modification>
     </div>
     <app-upload></app-upload>
   </div>

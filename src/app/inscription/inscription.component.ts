@@ -36,6 +36,7 @@ export class InscriptionComponent implements OnInit {
       ville: ['', Validators.required],
       sexe: ['Homme', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      description: [''],
     }, {
       validator: MustMatch('password', 'confirmPassword')
     });

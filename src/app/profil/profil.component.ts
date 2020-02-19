@@ -12,7 +12,7 @@ import {Photo} from '../_models/photo';
 export class ProfilComponent implements OnInit {
 
   geek: Geek = new Geek();
-  photos: Photo[];
+  showModification = false;
 
   constructor(
     private geekService: GeekService,
@@ -22,6 +22,10 @@ export class ProfilComponent implements OnInit {
 
   ngOnInit() {
     this.geek = JSON.parse(window.sessionStorage.getItem('geek'));
-    console.log(this.geek);
   }
+
+  showModif() {
+    this.showModification = !this.showModification;
+  }
+
 }

@@ -27,6 +27,10 @@ img{
 .a_propos {
   min-width: 50%;
   height: 100%;
-
+  font-size: larger;
   float: left;
+}
+
+.modif {
+  cursor: pointer;
 }

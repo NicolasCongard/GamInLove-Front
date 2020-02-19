@@ -2,7 +2,7 @@
 <form>
 	<div *ngIf="geekRecherche">
 		<div *ngFor="let geekFiltre of geekRecherche">
-			<div *ngIf="geekFiltre.pseudo != geekPseudo && !geekFiltre.coop[0]">
+			<div *ngIf="geekFiltre.pseudo != geekPseudo">
 				Pseudonyme : {{geekFiltre.pseudo}}
 				<br>
 				Sexe : {{geekFiltre.sexe}}
@@ -30,23 +30,26 @@
 		<div *ngFor="let geek of geeks| async">
 			<div *ngIf="geek.pseudo != geekPseudo && !geek.coop[0]">
 				<img [src]="geek.photos['url']">
-				<div>
-					Pseudonyme : {{geek.pseudo}}
-					<br>
-					Sexe : {{geek.sexe}}
-					<br>
-					Ville : {{geek.ville}}
-					<br>
-					Age : {{geek.age}}
-					<br>
-					<p>
-						<button (click)="superlike(geek, 'superlike')" class="bouton" type="submit">❤️</button>
-						<button (click)="like(geek, 'like')" class="bouton" type="submit">💛</button>
-						<button class="bouton" type="submit">❌</button>
-					</p>
-					<div *ngFor="let action of actions | async">
-						<div *ngIf="geekId == action.geekCible.id && geek.id == action.geekAction.id">
-							<app-coopdispo [geek]="geek" [geekPseudo]="geek.pseudo" [geekId]="geek.id"></app-coopdispo>
+				<div *ngIf="geek.pseudo != geekPseudo">
+					<div>
+						Pseudonyme : {{geek.pseudo}}
+						<br>
+						Sexe : {{geek.sexe}}
+						<br>
+						Ville : {{geek.ville}}
+						<br>
+						Age : {{geek.age}}
+						<br>
+						<p>
+							<button (click)="superlike(geek, 'superlike')" class="bouton" type="submit">❤️</button>
+							<button (click)="like(geek, 'like')" class="bouton" type="submit">💛</button>
+							<button class="bouton" type="submit">❌</button>
+						</p>
+						<div *ngFor="let action of actions | async">
+							<div *ngIf="geekId == action.geekCible.id && geek.id == action.geekAction.id">
+								<app-coopdispo [geek]="geek" [geekPseudo]="geek.pseudo" [geekId]="geek.id">
+								</app-coopdispo>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -21,6 +21,7 @@ import { ReadMessageComponent } from './read-message/read-message.component';
 import { SignupComponent } from './signup/signup.component';
 import { UploadComponent } from './upload/upload.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
+import { ModificationComponent } from './modification/modification.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
     SignupComponent,
     UploadComponent,
     SnackbarComponent,
+    ModificationComponent,
     // AutocompleteComponent,
   ],
 
