@@ -5,10 +5,10 @@ import { Geek } from '../_models/geek';
 import { Photo } from '../_models/photo';
 import { LikeService } from '../_services/like/like.service';
 import { Action } from '../_models/action';
-import {ActivatedRoute, Router} from '@angular/router';
-import {RechercheService} from '../_services/recherche/recherche.service';
-import {Recherche} from '../_models/recherche';
-import { RechercheComponent} from '../recherche/recherche.component';
+import { ActivatedRoute } from '@angular/router';
+import { RechercheService } from '../_services/recherche/recherche.service';
+import { Recherche } from '../_models/recherche';
+import { ActionService } from '../_services/action/action.service';
 
 @Component({
   selector: 'app-like',
@@ -18,17 +18,18 @@ import { RechercheComponent} from '../recherche/recherche.component';
 export class LikeComponent implements OnInit {
 
   geeks: Observable<Geek[]>;
+  actions: Observable<Action[]>;
   photos: Photo[];
-  pseudos: Geek[] = [];
-  geekPseudo;
-  private recherche: RechercheComponent;
+  geekRecherche: Geek[] = [];
+  geekPseudo: string;
+  geekId: number;
 
   constructor(
     private geekService: GeekService,
     private likeService: LikeService,
     private rechercheService: RechercheService,
+    private actionService: ActionService,
     private route: ActivatedRoute,
-    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -40,7 +41,7 @@ export class LikeComponent implements OnInit {
       recherche.ageMin = params.ageMin;
       recherche.ageMax = params.ageMax;
       console.log(recherche);
-      this.rechercheService.searchGeek(recherche).subscribe(filtreGeek => this.pseudos = filtreGeek);
+      this.rechercheService.searchGeek(recherche).subscribe(filtreGeek => this.geekRecherche = filtreGeek);
     });
 
 
@@ -48,7 +49,9 @@ export class LikeComponent implements OnInit {
 
   reloadData() {
     this.geeks = this.geekService.getAll();
+    this.actions = this.actionService.getAll();
     const geek = JSON.parse(window.sessionStorage.getItem('geek'));
+    this.geekId = geek.id;
     this.geekPseudo = geek.pseudo;
     let recherche = [];
   }
