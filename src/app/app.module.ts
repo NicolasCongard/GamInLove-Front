@@ -53,6 +53,7 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
       { path: '', component: AccueilComponent },
       { path: 'profil', canActivate: [AuthGuardService], component: ProfilComponent },
       { path: 'like', canActivate: [AuthGuardService], component: LikeComponent },
+      { path: 'like/profil', canActivate: [AuthGuardService], component: ProfilComponent },
       { path: 'message', canActivate: [AuthGuardService], component: MessageComponent },
       { path: 'like/message', canActivate: [AuthGuardService], component: MessageComponent },
       { path: 'recherche', canActivate: [AuthGuardService], component: RechercheComponent },
