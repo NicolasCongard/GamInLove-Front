@@ -25,6 +25,7 @@ export class LikeComponent implements OnInit {
   geekPseudo: string;
   geekId: number;
   private recherche: RechercheComponent;
+  geek: Geek = new Geek();
 
   constructor(
     private geekService: GeekService,
@@ -36,6 +37,7 @@ export class LikeComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
+    this.afficherPhoto();
     let recherche = new Recherche();
     this.route.queryParams.subscribe(params => {
       recherche.sexe = params.sexe;
@@ -45,10 +47,14 @@ export class LikeComponent implements OnInit {
       console.log(recherche);
       this.rechercheService.searchGeek(recherche).subscribe(filtreGeek => this.geekRecherche = filtreGeek);
     });
-
-
   }
 
+  afficherPhoto() {
+    this.geek = JSON.parse(window.sessionStorage.getItem('geek'));
+    this.likeService.getById(this.geek.id).subscribe(
+      photos => this.photos = photos
+    );
+  }
   reloadData() {
     this.geeks = this.geekService.getAll();
     this.actions = this.actionService.getAll();
