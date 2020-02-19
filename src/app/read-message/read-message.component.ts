@@ -16,7 +16,8 @@ export class ReadMessageComponent implements OnInit {
   mps;
   mpz: Mp[];
   geek: Geek;
-  submitted = false
+  submitted = false;
+  idGeek: number;
 
   constructor(
     private messageService: MessageService,
@@ -29,8 +30,8 @@ export class ReadMessageComponent implements OnInit {
 
   reloadData() {
     const geek = JSON.parse(window.sessionStorage.getItem('geek'));
-    const idGeek = geek.id;
-    this.mps = this.messageService.getAllMP(idGeek, this.action.geekCible.id);
+    this.idGeek = geek.id;
+    this.mps = this.messageService.getAllMP(this.idGeek, this.action.geekCible.id);
   }
 
   saveMp(geekMP: Geek, geekCible: Geek, message: string) {

@@ -34,13 +34,12 @@ export class InscriptionComponent implements OnInit {
       confirmPassword: ['', Validators.required],
       age: ['18', Validators.required],
       ville: ['', Validators.required],
-      sexe: ['Homme', Validators.required],
+      sexe: ['Geek', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       description: [''],
     }, {
       validator: MustMatch('password', 'confirmPassword')
     });
-    this.inscriptionForm.reset();
   }
 
   get f() {
