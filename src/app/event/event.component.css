@@ -14,7 +14,10 @@ h1 {
   background-color: black;
   padding-left: 50px;
 }
-
+img{
+  height: 83px;
+  vertical-align: middle;
+}
 h2{
   font-family: Outrun future;
   color: gold;

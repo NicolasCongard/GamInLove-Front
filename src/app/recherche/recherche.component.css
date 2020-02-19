@@ -6,6 +6,10 @@ h1 {
   background-color: black;
   padding-left: 50px;
 }
+img{
+  height: 83px;
+  vertical-align: middle;
+}
 .form-style-8{
   font-family: "Outrun future";
   width: 500px;
