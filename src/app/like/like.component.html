@@ -20,7 +20,7 @@
 					</p>
 				</div>
 				<div *ngFor="let action of actions | async">
-					<div *ngIf="geekId == action.geekCible.id && geekFiltre.id == action.geekAction.id">
+					<div *ngIf="geekId == action.geekAction.id && geekFiltre.id == action.geekCible.id">
 						<app-coopdispo [geek]="geekFiltre" [geekPseudo]="geekFiltre.pseudo" [geekId]="geekFiltre.id">
 						</app-coopdispo>
 					</div>
@@ -48,7 +48,7 @@
 						<button class="bouton" type="submit">❌</button>
 					</p>
 					<div *ngFor="let action of actions | async">
-						<div *ngIf="geekId == action.geekCible.id && geek.id == action.geekAction.id">
+						<div *ngIf="geekId == action.geekAction.id && geek.id == action.geekCible.id">
 							<app-coopdispo [geek]="geek" [geekPseudo]="geek.pseudo" [geekId]="geek.id">
 							</app-coopdispo>
 						</div>
