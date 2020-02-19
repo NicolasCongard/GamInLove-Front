@@ -20,7 +20,7 @@ export class RechercheService {
   searchGeek(recherche: Recherche): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}`, recherche, this.httpOptions);
   }
-  goLiker(recherche) {
-    this.router.navigate(['/like']/*, { queryParams: { sexe: recherche.sexe, ville: recherche.ville, ageMin: recherche.ageMin, ageMax: recherche.ageMax } }*/);
+  goLiker(recherche: Recherche) {
+    this.router.navigate(['/like'], { queryParams: { sexe: recherche.sexe, ville: recherche.ville, ageMin: recherche.ageMin, ageMax: recherche.ageMax } });
 	}
 }

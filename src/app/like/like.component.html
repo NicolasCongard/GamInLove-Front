@@ -1,24 +1,41 @@
 <h1>L❤️VE ton GEEK&nbsp;&nbsp;&nbsp;&nbsp;#YaourtAuxFruits</h1>
 <form>
-	<tr *ngFor="let photo of photos">
-	</tr>
-	<tr *ngFor="let geek of geeks| async">
-		<div *ngIf="geek.pseudo != geekPseudo || geek.action">
-			<div>
-				Pseudonyme : {{geek.pseudo}}
-				<br>
-				Sexe : {{geek.sexe}}
-				<br>
-				Ville : {{geek.ville}}
-				<br>
-				Age : {{geek.age}}
-				<br>
-				<p>
-					<button (click)="superlike(geek, 'superlike')" class="bouton" type="submit">❤️</button>
-					<button (click)="like(geek, 'like')" class="bouton" type="submit">💛</button>
-					<button class="bouton" type="submit">❌</button>
-				</p>
-			</div>
-		</div>
-	</tr>
+  <div *ngFor="let geekFiltre of pseudos">
+    <div>
+      Pseudonyme : {{geekFiltre.pseudo}}
+      <br>
+      Sexe : {{geekFiltre.sexe}}
+      <br>
+      Ville : {{geekFiltre.ville}}
+      <br>
+      Age : {{geekFiltre.age}}
+      <br>
+      <p>
+        <button (click)="superlike(geekFiltre, 'superlike')" class="bouton" type="submit">❤️</button>
+        <button (click)="like(geekFiltre, 'like')" class="bouton" type="submit">💛</button>
+        <button class="bouton" type="submit">❌</button>
+      </p>
+    </div>
+  </div>
+<!--
+<div *ngFor="let geek of geeks| async">
+  <div *ngIf="geek.pseudo != geekPseudo || geek.action">
+    <div>
+      Pseudonyme : {{geek.pseudo}}
+      <br>
+      Sexe : {{geek.sexe}}
+      <br>
+      Ville : {{geek.ville}}
+      <br>
+      Age : {{geek.age}}
+      <br>
+      <p>
+        <button (click)="superlike(geek, 'superlike')" class="bouton" type="submit">❤️</button>
+        <button (click)="like(geek, 'like')" class="bouton" type="submit">💛</button>
+        <button class="bouton" type="submit">❌</button>
+      </p>
+    </div>
+  </div>
+</div>
+-->
 </form>

@@ -5,7 +5,7 @@ import {Recherche} from '../_models/recherche';
 import {GeekService} from '../_services/geek/geek.service';
 import {RechercheService} from '../_services/recherche/recherche.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-recherche',
@@ -14,7 +14,6 @@ import {Router} from '@angular/router';
 })
 export class RechercheComponent implements OnInit {
   geeks: Observable<Geek>;
-  pseudos: string[] = [];
   geek: Geek = new Geek();
 
   searchForm: FormGroup;
@@ -23,6 +22,7 @@ export class RechercheComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private router: Router,
               private geekService: GeekService,
+              private route: ActivatedRoute,
               private rechercheService: RechercheService,
   ) {
 
@@ -43,7 +43,7 @@ export class RechercheComponent implements OnInit {
     this.geeks = this.geekService.getAll();
   }
 
-  onSubmit() {
+ /* onSubmit() {
     let recherche = new Recherche();
     recherche.sexe = this.searchForm.get('sexe').value;
     recherche.ville = this.searchForm.get('ville').value;
@@ -53,7 +53,7 @@ export class RechercheComponent implements OnInit {
       geekSearch => this.pseudos = geekSearch,
       error => console.log('error' + error)
     );
-  }
+  }*/
 
   goLike() {
     let recherche = new Recherche();
@@ -62,8 +62,7 @@ export class RechercheComponent implements OnInit {
     recherche.ageMin = this.searchForm.get('ageMin').value;
     recherche.ageMax = this.searchForm.get('ageMax').value;
     console.log(recherche);
-    this.rechercheService.goLiker(this.recherche);
-    console.log(this.pseudos);
+    this.rechercheService.goLiker(recherche);
 
   }
 }

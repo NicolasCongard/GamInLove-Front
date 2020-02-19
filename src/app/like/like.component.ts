@@ -5,9 +5,10 @@ import { Geek } from '../_models/geek';
 import { Photo } from '../_models/photo';
 import { LikeService } from '../_services/like/like.service';
 import { Action } from '../_models/action';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {RechercheService} from '../_services/recherche/recherche.service';
 import {Recherche} from '../_models/recherche';
+import { RechercheComponent} from '../recherche/recherche.component';
 
 @Component({
   selector: 'app-like',
@@ -18,18 +19,31 @@ export class LikeComponent implements OnInit {
 
   geeks: Observable<Geek[]>;
   photos: Photo[];
+  pseudos: Geek[] = [];
   geekPseudo;
+  private recherche: RechercheComponent;
 
   constructor(
     private geekService: GeekService,
     private likeService: LikeService,
     private rechercheService: RechercheService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit() {
     this.reloadData();
-    this.route.queryParams.subscribe(params => console.log(params))
+    let recherche = new Recherche();
+    this.route.queryParams.subscribe(params => {
+      recherche.sexe = params.sexe;
+      recherche.ville = params.ville;
+      recherche.ageMin = params.ageMin;
+      recherche.ageMax = params.ageMax;
+      console.log(recherche);
+      this.rechercheService.searchGeek(recherche).subscribe(filtreGeek => this.pseudos = filtreGeek);
+    });
+
+
   }
 
   reloadData() {
@@ -37,7 +51,6 @@ export class LikeComponent implements OnInit {
     const geek = JSON.parse(window.sessionStorage.getItem('geek'));
     this.geekPseudo = geek.pseudo;
     let recherche = [];
-    this.rechercheService.goLiker(recherche);
   }
 
   superlike(geekCible: Geek, typeAction: string) {
