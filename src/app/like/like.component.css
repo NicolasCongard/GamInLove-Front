@@ -7,19 +7,25 @@ img {
   max-width: 300px;
 }
 
-form {
+.cadre {
   margin-left: 10px;
   background-color: #333333;
   color: #dddddd;
-  margin-left:50px;
-  margin-right:50px;
-  padding: 20px;
+  padding: 25px;
   width:auto;
   border-width: 3px 5px 5px 5px;
   border-radius:4%;
   float:left;
   position: relative;
-  top: 60%; left: 35%;
+  top: 30%; left: 5%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content:center;
+  margin-top: 5px;
+  border: black 2px solid;
+
+}
+.cadre button {
 
 }
 
@@ -32,16 +38,15 @@ h1 {
 
 .bouton {
   background: transparent;
-  margin: 1px;
+  margin: 1px ;
   font-size: 25px;
   align-content: center;
 }
-
 button {
   border-width: 0px;
   outline: none;
 }
-/* 
+/*
 .like {
   margin: 0px auto;
   width: 100px;

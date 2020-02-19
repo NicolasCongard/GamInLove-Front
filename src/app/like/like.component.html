@@ -4,6 +4,7 @@
 		<div *ngFor="let geekFiltre of geekRecherche">
 			<div *ngIf="geekFiltre.pseudo != geekPseudo && !geekFiltre.coop[0]">
 				{{geekFiltre.photos | json}}
+        <div class="cadre">
 				Pseudonyme : {{geekFiltre.pseudo}}
 				<br>
 				Sexe : {{geekFiltre.sexe}}
@@ -17,6 +18,7 @@
 					<button (click)="like(geekFiltre, 'like')" class="bouton" type="submit">💛</button>
 					<button class="bouton" type="submit">❌</button>
 				</p>
+        </div>
 				<div *ngFor="let action of actions | async">
 					<div *ngIf="geekId == action.geekCible.id && geekFiltre.id == action.geekAction.id">
 						<app-coopdispo [geek]="geekFiltre" [geekPseudo]="geekFiltre.pseudo" [geekId]="geekFiltre.id">
@@ -30,7 +32,7 @@
 	<div *ngIf="geekRecherche == ''">
 		<div *ngFor="let geek of geeks| async">
 			<div *ngIf="geek.pseudo != geekPseudo && !geek.coop[0]">
-					<div>
+					<div class="cadre">
 						Pseudonyme : {{geek.pseudo}}
 						<br>
 						Sexe : {{geek.sexe}}
