@@ -2,7 +2,7 @@
 <form>
 	<div *ngIf="geekRecherche">
 		<div *ngFor="let geekFiltre of geekRecherche">
-			<div *ngIf="geekFiltre.pseudo != geekPseudo && !geekFiltre.coop[0]">
+			<div *ngIf="geekFiltre.pseudo != geekPseudo">
 				Pseudonyme : {{geekFiltre.pseudo}}
 				<br>
 				Sexe : {{geekFiltre.sexe}}
@@ -27,7 +27,7 @@
 
 	<div *ngIf="geekRecherche == ''">
 		<div *ngFor="let geek of geeks| async">
-			<div *ngIf="geek.pseudo != geekPseudo && !geek.coop[0]">
+			<div *ngIf="geek.pseudo != geekPseudo">
 				<div>
 					Pseudonyme : {{geek.pseudo}}
 					<br>
