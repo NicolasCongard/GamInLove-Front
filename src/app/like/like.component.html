@@ -18,7 +18,8 @@
 				</p>
 				<div *ngFor="let action of actions | async">
 					<div *ngIf="geekId == action.geekCible.id && geekFiltre.id == action.geekAction.id">
-						<!-- <app-coopdispo [geek]="geekFiltre" [geekPseudo]="geekFiltre.pseudo" [geekId]="geekFiltre.id"></app-coopdispo> -->
+						<app-coopdispo [geek]="geekFiltre" [geekPseudo]="geekFiltre.pseudo" [geekId]="geekFiltre.id">
+						</app-coopdispo>
 					</div>
 				</div>
 			</div>
@@ -28,6 +29,7 @@
 	<div *ngIf="geekRecherche == ''">
 		<div *ngFor="let geek of geeks| async">
 			<div *ngIf="geek.pseudo != geekPseudo && !geek.coop[0]">
+				<img [src]="geek.photos['url']">
 				<div>
 					Pseudonyme : {{geek.pseudo}}
 					<br>
@@ -44,7 +46,7 @@
 					</p>
 					<div *ngFor="let action of actions | async">
 						<div *ngIf="geekId == action.geekCible.id && geek.id == action.geekAction.id">
-							<!-- <app-coopdispo [geek]="geekFiltre" [geekPseudo]="geekFiltre.pseudo" [geekId]="geekFiltre.id"></app-coopdispo> -->
+							<app-coopdispo [geek]="geek" [geekPseudo]="geek.pseudo" [geekId]="geek.id"></app-coopdispo>
 						</div>
 					</div>
 				</div>

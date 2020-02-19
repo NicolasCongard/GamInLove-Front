@@ -2,6 +2,7 @@ import { Mp } from './mp';
 import { Event } from './event';
 import { Photo } from './photo';
 import { Action } from './action';
+import { Coop } from './coop';
 
 export class Geek {
     id: number;
@@ -16,7 +17,7 @@ export class Geek {
     description: string;
     photos: Array<Photo>;
     recherches: Array<string>;
-    coop: Array<string>;
+    coop: Array<Coop>;
     action: Array<Action>;
     mp: Array<Mp>;
     jeux: Array<string>;
