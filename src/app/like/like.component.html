@@ -26,7 +26,7 @@
 		</div>
 	</div>
 
-	<div *ngIf="geekRecherche == ''">
+	<div *ngIf="geekRecherche == ''"> 
 		<div *ngFor="let geek of geeks| async">
 			<div *ngIf="geek.pseudo != geekPseudo && !geek.coop[0]">
 				<img [src]="geek.photos['url']">

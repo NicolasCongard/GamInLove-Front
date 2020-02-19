@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RechercheService } from '../_services/recherche/recherche.service';
 import { Recherche } from '../_models/recherche';
 import { ActionService } from '../_services/action/action.service';
+import { RechercheComponent } from '../recherche/recherche.component';
 
 @Component({
   selector: 'app-like',
@@ -22,7 +23,8 @@ export class LikeComponent implements OnInit {
   photos: Photo[];
   geekRecherche: Geek[] = [];
   geekPseudo: string;
-  geekId: number; 
+  geekId: number;
+  private recherche: RechercheComponent; 
 
   constructor(
     private geekService: GeekService,
