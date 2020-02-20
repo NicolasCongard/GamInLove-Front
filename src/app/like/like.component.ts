@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import { GeekService } from '../_services/geek/geek.service';
 import { Observable } from 'rxjs';
 import { Geek } from '../_models/geek';
@@ -25,6 +25,8 @@ export class LikeComponent implements OnInit {
   geekPseudo: string;
   geekId: number;
   geek: Geek = new Geek();
+  continue: boolean;
+
 
   constructor(
     private geekService: GeekService,
@@ -72,5 +74,9 @@ export class LikeComponent implements OnInit {
     const geekAction = JSON.parse(window.sessionStorage.getItem('geek'));
     this.likeService.addNew({ geekCible, geekAction, typeAction } as Action)
       .subscribe(data => console.log(data), error => console.log(error));
+  }
+
+  showContinue(event) {
+    this.continue = event;
   }
 }

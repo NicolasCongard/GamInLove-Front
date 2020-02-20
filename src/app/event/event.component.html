@@ -1,13 +1,12 @@
 <h1><img src="https://cdn.discordapp.com/attachments/655048921055232041/679268715711430656/coeur-png-dessin-3.png">️Liste des events</h1>
 <form (ngSubmit)="onSubmit()">
-	<tr *ngFor="let event of events | async">
-			<p>
-				<input (change)="onSelect($event, event.id)" type="checkbox" id="{{event.id}}"
-					name="{{event.id}}" ngModel />
+	<div *ngFor="let event of events">
+			<span>
+				<input (change)="onSelect($event, event.id)" checked="checked" type="checkbox" id="{{event.id}}" name="{{event.id}}" ngModel />
 				<label for="{{event.id}}">{{event.nom}}</label>
-			</p>
+			</span>
 			<h2>à {{event.lieu}} le {{event.date | date: 'dd/MM/yyyy'}} !</h2>
-		</tr>
+		</div>
 	<p>
 		<button [hidden]="submitted" type="submit">S'inscrire</button>
 	</p>

@@ -1,9 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { LikeService } from '../_services/like/like.service';
 import { Photo } from '../_models/photo';
 import { Geek } from '../_models/geek';
 import { ActionService } from '../_services/action/action.service';
-import { Coop } from '../_models/coop';
 
 @Component({
   selector: 'app-coopdispo',
@@ -16,10 +15,10 @@ export class CoopdispoComponent implements OnInit {
   @Input() geekId: number;
   @Input() geek: Geek;
   photos: Photo[];
+  @Output() continue: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private likeService: LikeService,
-    private actionService: ActionService
   ) { }
 
   ngOnInit() {
@@ -32,10 +31,7 @@ export class CoopdispoComponent implements OnInit {
     );
   }
 
-  coop(geekCible: Geek) {
-    const geekCoop = JSON.parse(window.sessionStorage.getItem('geek'));
-    const id = geekCoop.id;
-    this.actionService.addNew(id, {geekCoop, geekCible} as Coop)
-      .subscribe(data => console.log(data), error => console.log(error));
+  validContinue() {
+    this.continue.emit('true');
   }
 }

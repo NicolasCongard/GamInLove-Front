@@ -11,7 +11,7 @@ import { Geek } from '../_models/geek';
 })
 export class EventComponent implements OnInit {
 
-  events: Observable<Event[]>;
+  events:Event[];
   geek: Geek = new Geek();
   submitted = false;
 
@@ -24,7 +24,7 @@ export class EventComponent implements OnInit {
   }
 
   reloadData() {
-    this.events = this.eventService.getAll();
+    this.eventService.getAll().subscribe(result => this.events = result);
   }
 
   onSubmit() {

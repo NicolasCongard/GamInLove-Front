@@ -48,8 +48,9 @@
 						<button class="bouton" type="submit">❌</button>
 					</p>
 					<div *ngFor="let action of actions | async">
-						<div *ngIf="geekId == action.geekAction.id && geek.id == action.geekCible.id">
-							<app-coopdispo [geek]="geek" [geekPseudo]="geek.pseudo" [geekId]="geek.id">
+
+						<div *ngIf="geekId == action.geekAction.id && geek.id == action.geekCible.id && !continue" >
+							<app-coopdispo [geek]="geek" [geekPseudo]="geek.pseudo" [geekId]="geek.id" (continue)="showContinue($event)">
 							</app-coopdispo>
 						</div>
 					</div>
