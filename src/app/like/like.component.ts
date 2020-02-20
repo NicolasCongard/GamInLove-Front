@@ -19,7 +19,7 @@ import { RechercheComponent } from '../recherche/recherche.component';
 export class LikeComponent implements OnInit {
 
   geeks: Observable<Geek[]>;
-  actions: Observable<Action[]>;
+  actions: Action[];
   photos: Photo[];
   geekRecherche: Geek[] = [];
   geekPseudo: string;
@@ -58,7 +58,7 @@ export class LikeComponent implements OnInit {
   }
   reloadData() {
     this.geeks = this.geekService.getAll();
-    this.actions = this.actionService.getAll();
+    this.actionService.getAll().subscribe( action => this.actions = action);
     const geek = JSON.parse(window.sessionStorage.getItem('geek'));
     this.geekId = geek.id;
     this.geekPseudo = geek.pseudo;
