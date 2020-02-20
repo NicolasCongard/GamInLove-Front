@@ -34,7 +34,7 @@ export class RechercheComponent implements OnInit {
   ngOnInit() {
     this.reloadData();
     this.searchForm = this.fb.group({
-      sexe: [''],
+      sexe: ['Geek'],
       ville: [''],
       ageMin: ['18'],
       ageMax: ['99'],
